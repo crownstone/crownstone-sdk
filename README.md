@@ -24,11 +24,11 @@ The smartphone libraries can be found at github:
     - Bluetooth (not there yet)
     - Localization (not there yet)
 
-The Crownstone app makes use of these libraries for the Bluetooth Low Energy part and connect to the REST API as well. The Crownstone app can be used as starting point to develop your own stand-alone app. It is written with React Native, and can be found at [github](https://github.com/dobots/CrownstoneApp).
+The [Crownstone app](https://github.com/dobots/CrownstoneApp) makes use of these libraries and connects to the REST API as well. The Crownstone app can be used as starting point to develop your own stand-alone app. It is written with React Native, and can be found on github.
 
 ## <a name="bluenet"></a>Bluenet Firmware
 
-The Bluenet Firmware can be downloaded from [github](https://github.com/dobots/bluenet/). There, you can also find the documentation of the bluetooth protocol (services, characteristics, and advertisements). To build the firmware, a GCC cross-compiler is required.
+The [Bluenet](https://github.com/dobots/bluenet/) Firmware can be downloaded from github. There, you can also find the documentation of the bluetooth protocol (services, characteristics, and advertisements). To build the firmware, a GCC cross-compiler is required.
 
 
 
