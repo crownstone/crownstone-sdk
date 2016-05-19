@@ -1,6 +1,6 @@
 # Crownstone SDK
 
-The Crownstone SDK exists out of three parts (in an increasing order of integration):
+The Crownstone SDK exists of three parts (in an increasing order of integration):
 
 * A [REST API](#rest_api) in the cloud
 * Smartphone [libraries](#smartphone_libs)
@@ -15,14 +15,14 @@ You can read how to use it in the [REST API documentation](REST_API.md).
 
 ## <a name="smartphone_libs"></a>Smartphone libraries
 
-The smartphone libraries can be found at github:
+The smartphone libraries can be found at github.
 
 - Android
     - [Bluetooth](https://github.com/dobots/bluenet-lib-android) (communication with Crownstones)
-    - Localization (not there yet)
+    - Localization (in development)
 - iOS
-    - Bluetooth (not there yet)
-    - Localization (not there yet)
+    - Bluetooth (in development)
+    - Localization (in development)
 
 The [Crownstone app](https://github.com/dobots/CrownstoneApp) makes use of these libraries and connects to the REST API as well.
 The Crownstone app can be used as starting point to develop your own stand-alone app.
@@ -33,7 +33,7 @@ It is written with React Native, and can be found on github.
 The [Bluenet](https://github.com/dobots/bluenet/) firmware can be downloaded from github. There, you can also find the documentation of the bluetooth protocol (services, characteristics, and advertisements). To build the firmware, a GCC cross-compiler is required.
 
 ## <a name="roadmap"></a>Roadmap
-There are still many functionalities to be finished. This means that some APIs are not there yet, other APIs still need to be implemented, while others may change. Especially the firmware API is expected to undergo a lot of changes.
+There are still many functionalities in development. This means that some APIs are not there yet, other APIs still need to be implemented, while others may change. Especially the firmware API is expected to undergo a lot of changes.
 
 ### Todo
 
