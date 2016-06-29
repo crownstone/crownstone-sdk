@@ -22,7 +22,7 @@ To make things easy, we provide native libraries for smartphones.
 
 ### <a name="bluenet_lib"></a>Bluetooth
 
-![Image of Bluetooth logo](https://raw.githubusercontent.com/crownstone/crownstone-sdk/master/images/bluetooth-smart-logo.png)
+![Image of Bluetooth logo](https://raw.githubusercontent.com/crownstone/crownstone-sdk/master/images/bluetooth-logo.png)
 
 This library abstracts the communication with the Crownstones.
 Features (some are still in development):
