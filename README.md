@@ -15,6 +15,8 @@ After that, it can be used to add users, so they can also make use of your Crown
 The cloud is also used to synchronize data between users, and serves as data storage.
 You can read how to use it in the [REST API documentation](REST_API.md).
 
+![Image of Strongloop API Explorer](https://raw.githubusercontent.com/crownstone/crownstone-sdk/master/images/strongloop-api-explorer.png)
+
 ## <a name="smartphone_libs"></a>Smartphone libraries
 To make things easy, we provide native libraries for smartphones.
 
