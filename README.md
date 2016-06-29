@@ -21,6 +21,9 @@ You can read how to use it in the [REST API documentation](REST_API.md).
 To make things easy, we provide native libraries for smartphones.
 
 ### <a name="bluenet_lib"></a>Bluetooth
+
+![Image of Bluetooth logo](https://raw.githubusercontent.com/crownstone/crownstone-sdk/master/images/bluetooth-smart-logo.png)
+
 This library abstracts the communication with the Crownstones.
 Features (some are still in development):
 
@@ -73,6 +76,9 @@ The libraries can be found on github:
 - [iOS](https://github.com/crownstone-bluenet-lib-android)
 
 ### Indoor localization
+
+![Image of Indoor Localization](https://raw.githubusercontent.com/crownstone/crownstone-sdk/master/images/indoor-localization.png)
+
 This library abstracts and implements the localization, it uses the [bluetooth library](#bluenet_lib) and [REST API](#rest_api). The localization is based on rooms, though it is more a certain area. This means you can define multiple rooms in a single real world room.
 
 Features (in development):
