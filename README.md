@@ -104,6 +104,10 @@ It is written in React Native.
 
 The [Bluenet](https://github.com/crownstone/bluenet/) firmware can be downloaded from github. There, you can also find the documentation of the bluetooth protocol (services, characteristics, and advertisements). To build the firmware, a GCC cross-compiler is required.
 
+![Image of development kit](https://raw.githubusercontent.com/crownstone/crownstone-sdk/master/images/dev-board.png)
+
+The development kit (see picture) is convenient if you want to work on the hardware, but not necessary. The bluenet firmware supports over-the-air updates. You can order the dev kit from [crownstone.rocks](http://crownstone.rocks/).
+
 ## <a name="roadmap"></a>Roadmap
 There are still many functionalities in development. This means that some APIs are not there yet, other APIs still need to be implemented, while others may change. Especially the firmware API is expected to undergo a lot of changes.
 
