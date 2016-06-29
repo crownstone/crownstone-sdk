@@ -69,8 +69,8 @@ Commands that can be issued to other Crownstones via the mesh. In case a command
 
 The libraries can be found on github:
 
-- [Android](https://github.com/dobots/bluenet-lib-android)
-- iOS (in development)
+- [Android](https://github.com/crownstone/bluenet-lib-android)
+- [iOS](https://github.com/crownstone-bluenet-lib-android)
 
 ### Indoor localization
 This library abstracts and implements the localization, it uses the [bluetooth library](#bluenet_lib) and [REST API](#rest_api). The localization is based on rooms, though it is more a certain area. This means you can define multiple rooms in a single real world room.
@@ -96,13 +96,13 @@ The libraries can be found on github:
 
 ### Example app
 
-The [Crownstone app](https://github.com/dobots/CrownstoneApp) makes use of these libraries and connects to the REST API as well.
+The [Crownstone app](https://github.com/crownstone/CrownstoneApp) (Android and iOS) makes use of these libraries and connects to the REST API as well.
 The Crownstone app can be used as starting point to develop your own stand-alone app.
-It is written with React Native, and can be found on github.
+It is written in React Native.
 
 ## <a name="bluenet"></a>Bluenet Firmware
 
-The [Bluenet](https://github.com/dobots/bluenet/) firmware can be downloaded from github. There, you can also find the documentation of the bluetooth protocol (services, characteristics, and advertisements). To build the firmware, a GCC cross-compiler is required.
+The [Bluenet](https://github.com/crownstone/bluenet/) firmware can be downloaded from github. There, you can also find the documentation of the bluetooth protocol (services, characteristics, and advertisements). To build the firmware, a GCC cross-compiler is required.
 
 ## <a name="roadmap"></a>Roadmap
 There are still many functionalities in development. This means that some APIs are not there yet, other APIs still need to be implemented, while others may change. Especially the firmware API is expected to undergo a lot of changes.
