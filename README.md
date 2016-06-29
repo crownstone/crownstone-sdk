@@ -3,7 +3,9 @@
 The Crownstone SDK exists of three parts (in an increasing order of integration):
 
 :cloud: A [REST API](#rest_api) in the cloud
+
 :iphone: Smartphone [libraries](#smartphone_libs)
+
 :crown: The [firmware](#bluenet) on the Crownstones, called Bluenet
 
 ## <a name="rest_api"></a>REST API
