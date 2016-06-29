@@ -103,6 +103,9 @@ The libraries can be found on github:
 ### Example app
 
 The [Crownstone app](https://github.com/crownstone/CrownstoneApp) (Android and iOS) makes use of these libraries and connects to the REST API as well.
+
+![Image of Example app](https://raw.githubusercontent.com/crownstone/crownstone-sdk/master/images/crownstone-app.png)
+
 The Crownstone app can be used as starting point to develop your own stand-alone app.
 It is written in React Native.
 
