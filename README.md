@@ -33,7 +33,6 @@ Features (some are still in development):
 - Set time
 - Factory reset
 - Update over the air
-- Enable/disable mesh
 - Enable/disable iBeacon
 - Enable/disable encryption
 - Enable/disable mesh
@@ -123,20 +122,49 @@ The development kit (see picture) is convenient if you want to work on the hardw
 ## <a name="roadmap"></a>Roadmap
 There are still many functionalities in development. This means that some APIs are not there yet, other APIs still need to be implemented, while others may change. Especially the firmware API is expected to undergo a lot of changes.
 
-### Todo
+### Alpha release
+The alpha release won't include all features listed above, but mainly acts as a first version with stable API.
+It will **not** include:
+- Crownstones:
+    - Encryption
+    - Dimming
+    - Scanning filter
+    - Enable/disable continous high frequency power sampling
+- Indoor localization lib:
+    - Predicted next room
+    - Get nearby rooms
+    - Get distance to room
 
-- Setup phase of Crownstones
-- Factory reset
-- Implement localization libraries for phone
-- Deal with multiple users in same room
-- Deal with user leaving a room/building so quickly, it cannot issue command to crownstone.
-    - Requires a regular `keep alive` command from the phone.
-    - Requires the Crownstones to keep up who or how many users are in the same room as the Crownstone.
-- Encryption
-- More configuration options
-- Accurate power measurements
-- Softfuse
-- Synchronize state of Crownstones to phone
-    - Via advertisements
-    - Via mesh
+### Beta release
+The following list are planned features or updates for the beta release:
+- Crownstones:
+    - Encryption
+    - Enable/disable continous high frequency power sampling
 
+### First release candidate
+The following list are planned features or updates for the first release candidate:
+- Crownstones:
+    - Dimming
+    - Improved power measurements
+    - Improved scanning: filters, report result via notifications
+    - Handling multiple user conflicts when they're not connected to the internet
+    - Softfuse
+- Indoor localization lib:
+    - Improve localization
+    - Get predicted next room
+
+### Later releases
+We still have many features that we want to implement, like:
+- Crownstones:
+    - Enable Eddystone support
+    - Device recognition: use the high frequency power sampling to automatically recognize what device is plugged in the Crownstone
+
+- Indoor localization lib:
+    - Automatic discovery of crownstone location: just walking around with your smartphone is enough to calibrate the indoor localization
+
+- Integration with 3rd parties:
+    - IFTTT
+    - Zapier
+    - Philips Hue
+    - Homey
+    - etc.
