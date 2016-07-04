@@ -8,6 +8,10 @@ The Crownstone SDK exists of three parts (in an increasing order of integration)
 
 :crown: The [firmware](#bluenet) on the Crownstones, called Bluenet
 
+### <a name="bluenet_lib"></a>Bluetooth
+
+![Image of Bluetooth logo](https://raw.githubusercontent.com/crownstone/crownstone-sdk/master/images/bluetooth-logo.png)
+
 ## <a name="rest_api"></a>REST API
 
 The cloud is required to setup the Crownstones: keys and IDs will be generated, and locations can be set.
@@ -18,14 +22,14 @@ You can read how to use it in the [REST API documentation](REST_API.md).
 ![Image of Strongloop API Explorer](https://raw.githubusercontent.com/crownstone/crownstone-sdk/master/images/strongloop-api-explorer.png)
 
 ## <a name="smartphone_libs"></a>Smartphone libraries
-To make things easy, we provide native libraries for smartphones.
+To make things easy, we provide native libraries for smartphones. The following libraries are available and can be found on github:
 
-### <a name="bluenet_lib"></a>Bluetooth
+- [Android](https://github.com/crownstone/bluenet-lib-android)
+- [iOS](https://github.com/crownstone/bluenet-lib-ios)
 
-![Image of Bluetooth logo](https://raw.githubusercontent.com/crownstone/crownstone-sdk/master/images/bluetooth-logo.png)
+The libraries abstract the communication with the Crownstones. They simplify scanning/search for crownstones, wrap the messages into easy-to-use objects, and provide simple functions to access the functionalities provided on the Crownstones. 
 
-This library abstracts the communication with the Crownstones.
-Features (some are still in development):
+The following features will be available (some are still in development):
 
 #### <a name="bluenet_lib_commands"></a>Commands
 
@@ -48,7 +52,9 @@ This data streams in regularly via a callback.
 - Chip temperature (°C)
 
 #### <a name="bluenet_lib_configs"></a>Get/set configurations:
-Configurations that can be set and read. The enable/disable states set by a [command](#bluenet_lib_commands), can be read as well.
+Configurations that can be set and read. 
+
+Note: The enable/disable states can only be set using the corresponding [command](#bluenet_lib_commands) but they can be read through the config.
 
 - Encryption keys
 - ID
@@ -68,11 +74,6 @@ Commands that can be issued to other Crownstones via the mesh. In case a command
 - Set [config](#bluenet_lib_configs)
 - Enable/disable scanning or high frequency power sampling
 
-
-The libraries can be found on github:
-
-- [Android](https://github.com/crownstone/bluenet-lib-android)
-- [iOS](https://github.com/crownstone-bluenet-lib-android)
 
 ### Indoor localization
 
@@ -113,14 +114,49 @@ It is written in React Native.
 
 ## <a name="bluenet"></a>Bluenet Firmware
 
-The [Bluenet](https://github.com/crownstone/bluenet/) firmware can be downloaded from github. There, you can also find the documentation of the bluetooth protocol (services, characteristics, and advertisements). To build the firmware, a GCC cross-compiler is required.
+The [Bluenet](https://github.com/crownstone/bluenet/) firmware can be downloaded from github. For the documentation, see the following links
+
+- [Installation Manual](https://github.com/crownstone/bluenet/blob/master/INSTALL.md) 
+A step by step description to install the build system required to build and run the bluenet firmware
+- [Bluetooth Protocol](https://github.com/crownstone/bluenet/blob/master/PROTOCOL.md)
+Protocol description of the services, characteristics, advertisements, and mesh.
+- [License](https://github.com/crownstone/bluenet/blob/master/LICENSE.txt)
+License Agreement
+
+## <a name="bootloader"></a>Bootloader
+
+We are using a modified version of the bootloader from the Nordic SDK which can be found [here](https://github.com/crownstone/bluenet-bootloader). 
+
+The bootloader handles starting the firmware, as well as device firmware upload (DFU) over the air. It provides DFU for firmware, softdevice and bootloader. In addition, the bootloader also provides some checks to handle unwanted resets, which means it will automatically go into DFU mode when too many subsequent resets are detected.
+
+Note: The bootloader is optional if the Crownstones are programmed over USB. It is only needed to be able to DFU over the air.
+
+## <a name="bluenet_installation"></a>Installation
+To simplify installation of the Bluenet build system on linux, an `install.sh` script is provided in this repository which downloads and installs everything required to build the Bluenet firmware. 
+
+Note: By using the script you implicitly accept the terms of the license agreement of the JLink/Segger. For the license agreement, see [here](https://www.segger.com/downloads/jlink/jlink_5.12.8_x86_64.deb).
+
+To use it, simply copy the script to the root location where you want to download the the files, e.g.
+
+    cd ~/Project/Crownstone/
+    
+Then run the script with
+
+    ./install.sh
+    
+It will download all necessary dependencies, clone into the Bluenet repository, and set up the config/build system to start programing straight away.
+
+If you prefer to install it manually, you can find a step by step installation manual [here](https://github.com/crownstone/bluenet/blob/master/INSTALL.md).
+
+
+## Crownstone Hardware
 
 ![Image of development kit](https://raw.githubusercontent.com/crownstone/crownstone-sdk/master/images/dev-board.png)
 
 The development kit (see picture) is convenient if you want to work on the hardware, but not necessary. The bluenet firmware supports over-the-air updates. You can order the dev kit from [crownstone.rocks](http://crownstone.rocks/).
 
 ## <a name="roadmap"></a>Roadmap
-There are still many functionalities in development. This means that some APIs are not there yet, other APIs still need to be implemented, while others may change. Especially the firmware API is expected to undergo a lot of changes.
+There are still many functionalities in development. This means that some APIs are not there yet, other APIs still need to be implemented, while others may change. 
 
 ### Alpha release
 The alpha release won't include all features listed above, but mainly acts as a first version with stable API.
@@ -130,6 +166,7 @@ It will **not** include:
     - Dimming
     - Scanning filter
     - Enable/disable continous high frequency power sampling
+    - Getting config over the mesh
 - Indoor localization lib:
     - Predicted next room
     - Get nearby rooms
