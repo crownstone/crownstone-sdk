@@ -41,8 +41,11 @@ print "> OK" $GREEN
 
 print "> Creating directories ..." $ORANGE
 
+mkdir -p bluenet-workspace
+cd bluenet-workspace
+
 mkdir -p config
-mkdir -p nordic/v8.1/
+mkdir -p nordic/v11/
 mkdir -p tools/compiler
 
 mkdir -p tmp
@@ -52,7 +55,7 @@ print "> OK" $GREEN
 print "> Getting Nordic SDK" $ORANGE
 
 cd tmp
-wget https://developer.nordicsemi.com/nRF5_SDK/nRF51_SDK_v8.x.x/nRF51_SDK_8.1.0_b6ed55f.zip
+wget https://developer.nordicsemi.com/nRF5_SDK/nRF5_SDK_v11.x.x/nRF5_SDK_11.0.0_89a8197.zip
 
 if [[ $? -ne 0 ]]; then
   print "Failed to get Nordic SDK" $RED
@@ -61,7 +64,7 @@ fi
 
 print ">> Extracting Nordic SDK" $ORANGE
 
-unzip nRF51_SDK_8.1.0_b6ed55f.zip -d ../nordic/v8.1
+unzip nRF5_SDK_11.0.0_89a8197.zip -d ../nordic/v11
 
 if [[ $? -ne 0 ]]; then
   print "Failed to extract Noridc SDK" $RED
@@ -72,8 +75,8 @@ print ">> OK" $GREEN
 
 print ">> Applying Nordic Fix" $ORANGE
 
-cd ../nordic/v8.1/
-perl -p -i -e 's/\"bx r14\" : : \"I\" \(number\) : \"r0\"/\"bx r14\" : : \"I\" \(\(uint16_t\)number\) : \"r0\"/g' `grep -ril '"bx r14" : : "I" (number) : "r0"' *`
+cd ../nordic/v11/
+perl -p -i -e 's/#define GCC_CAST_CPP \(uint8_t\)/#define GCC_CAST_CPP \(uint16_t\)/g' `grep -ril "#define GCC_CAST_CPP (uint8_t)" *`
 
 if [[ $? -ne 0 ]]; then
   print "Failed to apply Nordic Fix" $RED
@@ -122,7 +125,7 @@ print ">> OK" $GREEN
 print "> Getting compiler" $ORANGE
 
 cd tmp
-wget https://launchpad.net/gcc-arm-embedded/4.8/4.8-2014-q3-update/+download/gcc-arm-none-eabi-4_8-2014q3-20140805-linux.tar.bz2
+wget https://launchpad.net/gcc-arm-embedded/5.0/5-2016-q2-update/+download/gcc-arm-none-eabi-5_4-2016q2-20160622-linux.tar.bz2
 
 if [[ $? -ne 0 ]]; then
   print "Failed to get compiler" $RED
@@ -133,7 +136,7 @@ print "> OK" $GREEN
 
 print ">> Installing compiler" $ORANGE
 
-tar -xjvf gcc-arm-none-eabi-4_8-2014q3-20140805-linux.tar.bz2 -C ../tools/compiler/
+tar -xjvf gcc-arm-none-eabi-5_4-2016q2-20160622-linux.tar.bz2 -C ../tools/compiler/
 
 if [[ $? -ne 0 ]]; then
   print "Failed to extract compiler" $RED
@@ -159,7 +162,7 @@ print ">> OK" $GREEN
 
 print "> Getting bluenet" $ORANGE
 
-git clone https://github.com/dobots/bluenet --branch sdk_8
+git clone https://github.com/crownstone/bluenet --branch sdk_11
 
 if [[ $? -ne 0 ]]; then
   print "Failed to clone into bluenet" $RED
@@ -181,14 +184,15 @@ print ">> OK" $GREEN
 
 print ">> Installing bluenet" $ORANGE
 
-echo "export BLUENET_DIR=$PWD/bluenet" >> ~/.bashrc
-echo "export BLUENET_CONFIG_DIR=$PWD/config" >> ~/.bashrc
+echo "export BLUENET_WORKSPACE_DIR=$PWD" >> ~/.bashrc
+#echo "export BLUENET_DIR=$PWD/bluenet" >> ~/.bashrc
+#echo "export BLUENET_CONFIG_DIR=$PWD/config" >> ~/.bashrc
 
 cp $PWD/bluenet/CMakeBuild.config.template $PWD/config/CMakeBuild.config
 
 echo "" >> $PWD/config/CMakeBuild.config
-echo "COMPILER_PATH=$PWD/tools/compiler/gcc-arm-none-eabi-4_8-2014q3" >> $PWD/config/CMakeBuild.config
-echo "NRF51822_DIR=$PWD/nordic/v8.1" >> $PWD/config/CMakeBuild.config
+echo "COMPILER_PATH=$PWD/tools/compiler/gcc-arm-none-eabi-5_4-2016q2" >> $PWD/config/CMakeBuild.config
+echo "NRF51822_DIR=$PWD/nordic/v11" >> $PWD/config/CMakeBuild.config
 
 print "Please fill in the missing variables in the CMakeBuild.config (should be opened automatically in a gedit window). The script will complete once the window is closed."
 
@@ -207,4 +211,3 @@ print "To compile and upload the bluenet code first execute" $GREEN
 print "  source ~/.bashrc" $GREEN
 print "then go to $PWD/bluenet/scripts and run" $GREEN
 print "  ./firmware.sh run"  $GREEN
-
