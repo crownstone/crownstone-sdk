@@ -186,7 +186,7 @@ print ">> Setup bluenet" $ORANGE
 
 cp $PWD/bluenet/env.config.template $PWD/bluenet/env.config
 echo "" >> $PWD/bluenet/env.config
-echo "BLUENET_WORKSPACE=$PWD" >> $PWD/bluenet/env.config
+echo "BLUENET_WORKSPACE_DIR=$PWD" >> $PWD/bluenet/env.config
 echo "source $PWD/bluenet/scripts/env.sh" >> ~/.bashrc
 
 #echo "export BLUENET_WORKSPACE_DIR=$PWD" >> ~/.bashrc
