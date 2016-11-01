@@ -95,11 +95,6 @@ Features (in development):
 - Get predicted next room
 - Get location (room) of other users
 
-The libraries can be found on github:
-
-- Android (in development)
-- iOS (in development)
-
 ### Example app
 
 ![Image of Example app](https://raw.githubusercontent.com/crownstone/crownstone-sdk/master/images/crownstone-app-small.png)
@@ -116,10 +111,10 @@ It is written in React Native.
 
 The [Bluenet](https://github.com/crownstone/bluenet/) firmware can be downloaded from github. For the documentation, see the following links
 
-- [Installation Manual](https://github.com/crownstone/bluenet/blob/master/INSTALL.md) 
-A step by step description to install the build system required to build and run the bluenet firmware
-- [Bluetooth Protocol](https://github.com/crownstone/bluenet/blob/master/PROTOCOL.md)
+- [Bluetooth Protocol](https://github.com/crownstone/bluenet/blob/master/docs/PROTOCOL.md)
 Protocol description of the services, characteristics, advertisements, and mesh.
+- [Installation Manual](https://github.com/crownstone/bluenet/blob/master/docs/INSTALL.md) 
+A step by step description to install the build system required to build and run the bluenet firmware.
 - [License](https://github.com/crownstone/bluenet/blob/master/LICENSE.txt)
 License Agreement
 
@@ -162,7 +157,6 @@ There are still many functionalities in development. This means that some APIs a
 The alpha release won't include all features listed above, but mainly acts as a first version with stable API.
 It will **not** include:
 - Crownstones:
-    - Encryption
     - Dimming
     - Scanning filter
     - Enable/disable continous high frequency power sampling
@@ -175,7 +169,6 @@ It will **not** include:
 ### Beta release
 The following list are planned features or updates for the beta release:
 - Crownstones:
-    - Encryption
     - Enable/disable continous high frequency power sampling
 
 ### First release candidate
