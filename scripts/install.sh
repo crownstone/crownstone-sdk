@@ -4,6 +4,20 @@ ORANGE="\033[38;5;214m"
 GREEN="\033[38;5;46m"
 RED="\033[38;5;196m"
 
+## Collect packages to install and URL to download from 
+
+NORDIC_SDK=nRF5_SDK_11.0.0_89a8197.zip
+NORDIC_URL=https://developer.nordicsemi.com/nRF5_SDK/nRF5_SDK_v11.x.x/$NORDIC_SDK
+
+# See for overview https://www.segger.com/downloads/jlink
+JLINK32=JLink_Linux_V610l_i386.deb
+JLINK64=JLink_Linux_V610l_x86_64.deb
+JLINK32_URL=https://www.segger.com/downloads/jlink/$JLINK32
+JLINK64_URL=https://www.segger.com/downloads/jlink/$JLINK64
+
+GCC=gcc-arm-none-eabi-5_4-2016q2-20160622-linux.tar.bz2
+GCC_URL=https://launchpad.net/gcc-arm-embedded/5.0/5-2016-q2-update/+download/$GCC
+
 # print function, first parameter is the string, second parameter the colour.
 # colour is optional
 function print {
@@ -55,7 +69,7 @@ print "> OK" $GREEN
 print "> Getting Nordic SDK" $ORANGE
 
 cd tmp
-wget https://developer.nordicsemi.com/nRF5_SDK/nRF5_SDK_v11.x.x/nRF5_SDK_11.0.0_89a8197.zip
+wget $NORDIC_URL
 
 if [[ $? -ne 0 ]]; then
   print "Failed to get Nordic SDK" $RED
@@ -64,7 +78,7 @@ fi
 
 print ">> Extracting Nordic SDK" $ORANGE
 
-unzip nRF5_SDK_11.0.0_89a8197.zip -d ../nordic/v11
+unzip $NORDIC_SDK -d ../nordic/v11
 
 if [[ $? -ne 0 ]]; then
   print "Failed to extract Noridc SDK" $RED
@@ -90,12 +104,12 @@ print ">> OK" $GREEN
 print "> Getting JLink" $ORANGE
 
 cd tmp
-#curl -d accept_license_agreement=accepted https://www.segger.com/downloads/jlink/jlink_5.12.8_x86_64.deb -o jlink_5.12.8_x86_64.deb
 
 if $arch64; then
-  wget --post-data "accept_license_agreement=accepted" https://www.segger.com/downloads/jlink/jlink_5.12.8_x86_64.deb
+  echo "wget --post-data \"accept_license_agreement=accepted\" $JLINK64_URL"
+  wget --post-data "accept_license_agreement=accepted" $JLINK64_URL
 else
-  wget --post-data "accept_license_agreement=accepted" https://www.segger.com/downloads/jlink/jlink_5.12.8_i386.deb
+  wget --post-data "accept_license_agreement=accepted" $JLINK32_URL
 fi
 
 if [[ $? -ne 0 ]]; then
@@ -108,9 +122,9 @@ print "> OK" $GREEN
 print ">> Installing JLink" $ORANGE
 
 if $arch64; then
-  sudo dpkg -i jlink_5.12.8_x86_64.deb
+  sudo dpkg -i $JLINK64
 else
-  sudo dpkg -i jlink_5.12.8_i386.deb
+  sudo dpkg -i $JLINK32
 fi
 
 if [[ $? -ne 0 ]]; then
@@ -125,7 +139,7 @@ print ">> OK" $GREEN
 print "> Getting compiler" $ORANGE
 
 cd tmp
-wget https://launchpad.net/gcc-arm-embedded/5.0/5-2016-q2-update/+download/gcc-arm-none-eabi-5_4-2016q2-20160622-linux.tar.bz2
+wget $GCC_URL
 
 if [[ $? -ne 0 ]]; then
   print "Failed to get compiler" $RED
@@ -136,7 +150,7 @@ print "> OK" $GREEN
 
 print ">> Installing compiler" $ORANGE
 
-tar -xjvf gcc-arm-none-eabi-5_4-2016q2-20160622-linux.tar.bz2 -C ../tools/compiler/
+tar -xjvf $GCC -C ../tools/compiler/
 
 if [[ $? -ne 0 ]]; then
   print "Failed to extract compiler" $RED
