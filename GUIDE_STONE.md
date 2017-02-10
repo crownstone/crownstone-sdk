@@ -26,7 +26,7 @@ With the mesh, the Guidestones can communicate with eachother. This enables conf
 #### Hub
 With a hub, the Guidestones can be constantly controlled and monitored via the internet.
 
-Currently there is an Android test app available that acts as hub for scanning (tracking) wearables, available on [git](https://github.com/crownstone/mesh-scan-sync-android).
+Currently there is an Android test app available that acts as hub for scanning (tracking) wearables, available on [git](https://github.com/crownstone/mesh-scan-sync-android). This app only works with the alpha version of the mesh, as on firmware version 1.X.X.
 
 #### Scanning
 This enables the localization of wearables, also requires a hub.
