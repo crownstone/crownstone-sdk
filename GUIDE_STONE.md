@@ -13,7 +13,11 @@ The localization works in two ways:
 
 #### Setup
 
-Currently, each Guidestone first has to be setup individually. This ensures that noone else can configure your Guidestones. You can use the [Crownstone app](https://crownstone.rocks/app/) (iOS and Android) to perform the setup.
+Currently, each Guidestone first has to be setup individually. 
+This ensures that noone else can configure your Guidestones. 
+At the moment, you can use the [consumer app](https://crownstone.rocks/app/) (iOS and Android) to perform the setup.
+
+A different app will become available to setup or configure the Guidestone with your prefered settings (iBeacon UUID, major, minor, etc).
 
 
 ## Upcoming features
