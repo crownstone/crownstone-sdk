@@ -1,7 +1,7 @@
 # Crownstone REST API
 
 The crownstone rest api is running on heroku and is available at https://cloud.crownstone.rocks. The base url for the 
-rest api is https://cloud.crownstone.rocks/api. The endpoints are then appended to the base url. E.g. 
+rest api is `https://cloud.crownstone.rocks/api`. The endpoints are then appended to the base url. E.g. 
 `POST /users/login` becomes `POST https://cloud.crownstone.rocks/api/users/login`
 
 An overview of the available endpoints can be found at https://cloud.crownstone.rocks/explorer/. The endpoints 
