@@ -1,8 +1,11 @@
 # Crownstone REST API
 
-The crownstone rest api is running on heroku and is available at https://crownstone-cloud.herokuapp.com. The base url for the rest api is https://crownstone-cloud.herokuapp.com/api. The endpoints are then appended to the base url. E.g. `POST /users/login` becomes `POST https://crownstone-cloud.herokuapp.com/api/users/login`
+The crownstone rest api is running on heroku and is available at https://cloud.crownstone.rocks. The base url for the 
+rest api is https://cloud.crownstone.rocks/api. The endpoints are then appended to the base url. E.g. 
+`POST /users/login` becomes `POST https://cloud.crownstone.rocks/api/users/login`
 
-An overview of the available endpoints can be found at https://crownstone-cloud.herokuapp.com/explorer. The endpoints describe the parameters as well as the responses. An example of the Stone endpoint (see below) can be seen here:
+An overview of the available endpoints can be found at https://cloud.crownstone.rocks/explorer/. The endpoints 
+describe the parameters as well as the responses. An example of the Stone endpoint (see below) can be seen here:
 
 ![Image of Strongloop API Explorer of the Stone endpoint](https://raw.githubusercontent.com/crownstone/crownstone-sdk/master/images/strongloop-api-explorer-stone.png)
 
