@@ -225,7 +225,7 @@ print ">> OK" $GREEN
 
 print ">> Setup bluenet" $ORANGE
 
-cp $PWD/bluenet/env.config.template $PWD/bluenet/env.config
+cp $PWD/bluenet/conf/cmake/env.config.template $PWD/bluenet/env.config
 echo "" >> $PWD/bluenet/env.config
 echo "BLUENET_WORKSPACE_DIR=$PWD" >> $PWD/bluenet/env.config
 echo "source $PWD/bluenet/scripts/env.sh" >> ~/.bashrc
@@ -234,7 +234,7 @@ echo "source $PWD/bluenet/scripts/env.sh" >> ~/.bashrc
 #echo "export BLUENET_DIR=$PWD/bluenet" >> ~/.bashrc
 #echo "export BLUENET_CONFIG_DIR=$PWD/config" >> ~/.bashrc
 
-cp $PWD/bluenet/CMakeBuild.config.template $PWD/config/CMakeBuild.config
+cp $PWD/bluenet/conf/cmake/CMakeBuild.config.template $PWD/config/CMakeBuild.config
 
 echo "" >> $PWD/config/CMakeBuild.config
 echo "COMPILER_PATH=$PWD/tools/compiler/gcc-arm-none-eabi-5_4-2016q2" >> $PWD/config/CMakeBuild.config
