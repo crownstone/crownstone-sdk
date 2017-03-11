@@ -55,7 +55,7 @@ else
   exit 1
 fi
 
-print "> Install script dependencies with apt-get such as unzip, git and cmake [Y/n]: " $ORANGE --no-newline
+print "> Install script/build dependencies with apt-get such as unzip, git and cmake [Y/n]: " $ORANGE --no-newline
 
 read response
 
@@ -69,6 +69,24 @@ else
     exit 1
   fi
   print "> OK" $GREEN
+fi
+
+print "> Where do you want to install the software (e.g. ~/workspace): " $ORANGE --no-newline
+
+read response
+
+if [ "$response" == "" ]; then
+	print "> Using current directory" $ORANGE
+else
+	# perform tilde expansion
+	response=$(eval echo "$response")
+	if [ -d "$response" ]; then
+		cd $response
+	else
+		print "This is not a directory, exit." $RED
+		exit 1
+	fi
+	print "> Using directory $response as workspace"
 fi
 
 print "> Creating directories ..." $ORANGE
