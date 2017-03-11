@@ -226,7 +226,7 @@ print "> Getting bluenet" $ORANGE
 git clone https://github.com/crownstone/bluenet
 
 if [[ $? -ne 0 ]]; then
-  print "Failed to clone into bluenet" $RED
+  print "Failed to clone the bluenet repository" $RED
   exit 1
 fi
 
@@ -237,8 +237,27 @@ print ">> Getting bluenet bootloader" $ORANGE
 git clone https://github.com/crownstone/bluenet-bootloader
 
 if [[ $? -ne 0 ]]; then
-  print "Failed to clone into bluenet" $RED
+  print "Failed to clone the bluenet bootloader repository" $RED
   exit 1
+fi
+
+print ">> OK" $GREEN
+
+print ">> Getting bluenet mesh repository" $ORANGE
+
+git clone https://github.com/crownstone/nRF51-ble-bcast-mesh
+
+if [[ $? -ne 0 ]]; then
+  print "Failed to clone the bluenet mesh repository" $RED
+  exit 1
+else
+	cd nRF51-ble-bcast-mesh
+	git checkout bluenet
+	if [[ $? -ne 0 ]]; then
+	  print "Failed to switch to the bluenet branch of the mesh repository" $RED
+	  exit 1
+	fi
+	cd ..
 fi
 
 print ">> OK" $GREEN
