@@ -22,7 +22,8 @@ JLINK64_URL=https://www.segger.com/downloads/jlink/$JLINK64
 # Original website:
 # GCC_URL=https://launchpad.net/gcc-arm-embedded/5.0/5-2016-q2-update/+download/$GCC
 # Now at https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads
-GCC=gcc-arm-none-eabi-6_2-2016q4-20161216-linux.tar.bz2
+GCC_PREFIX=gcc-arm-none-eabi-6_2-2016q4
+GCC=$GCC_PREFIX-20161216-linux.tar.bz2
 GCC_URL=$CROWNSTONE_SDK_TOOLS/$GCC
 
 # Print function:
@@ -81,6 +82,7 @@ else
 	# perform tilde expansion
 	response=$(eval echo "$response")
 	if [ -d "$response" ]; then
+		mkdir -p $response
 		cd $response
 	else
 		print "This is not a directory, exit." $RED
@@ -199,11 +201,11 @@ fi
 
 print ">> OK" $GREEN
 
-print ">> Install compiler dependencies (Y/n): " $ORANGE --no-newline
+print ">> Install compiler dependencies (libstdc++, libncurses)  [Y/n]: " $ORANGE --no-newline
 read response
 
 if [ "$response" == "n" ] || [ "$response" == "N" ]; then
-  print "Skip installing JLink" $RED
+  print "Skip installing compiler dependencies" $RED
 else
   sudo dpkg --add-architecture i386
   sudo apt-get update
@@ -255,7 +257,7 @@ echo "source $PWD/bluenet/scripts/env.sh" >> ~/.bashrc
 cp $PWD/bluenet/conf/cmake/CMakeBuild.config.template $PWD/config/CMakeBuild.config
 
 echo "" >> $PWD/config/CMakeBuild.config
-echo "COMPILER_PATH=$PWD/tools/compiler/gcc-arm-none-eabi-5_4-2016q2" >> $PWD/config/CMakeBuild.config
+echo "COMPILER_PATH=$PWD/tools/compiler/$GCC_PREFIX" >> $PWD/config/CMakeBuild.config
 echo "NRF51822_DIR=$PWD/nordic/v11" >> $PWD/config/CMakeBuild.config
 
 print "Please fill in the missing variables in the CMakeBuild.config (should be opened automatically in a gedit window). The script will complete once the window is closed."
@@ -281,4 +283,4 @@ print "*************************************************************************
 print "To compile and upload the bluenet code first execute" $GREEN
 print "  source ~/.bashrc" $GREEN
 print "then go to $PWD/bluenet/scripts and run" $GREEN
-print "  ./firmware.sh run"  $GREEN
+print "  ./firmware.sh --command build"  $GREEN
