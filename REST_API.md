@@ -2,7 +2,7 @@
 
 The crownstone rest api is running on heroku and is available at https://cloud.crownstone.rocks. The base url for the 
 rest api is `https://cloud.crownstone.rocks/api`. The endpoints are then appended to the base url. E.g. 
-`POST /users/login` becomes `POST https://cloud.crownstone.rocks/api/users/login`. Note, navigating to that URL won't work. It's a POST request. 
+`POST /users/login` becomes `POST https://cloud.crownstone.rocks/api/users/login`. Note, navigating to that URL won't work. It's a POST request. If you want to use the POST login command, make sure you do not use an access token in this request.
 
 To explore the API login through: https://cloud.crownstone.rocks/ and copy the accessToken to the explorer. The explorer gives an overview of the available endpoints and can be found at https://cloud.crownstone.rocks/explorer/. The endpoints 
 describe the parameters as well as the responses. An example of the Stone endpoint (see below) can be seen here:
@@ -27,6 +27,14 @@ Note: every api call except `/users/login` and `/users/resendVerification` has t
 
 Note: if there is more than one parameter with type query, they can be combined with &, e.g. `/Stones/findLocation?address=abcd&access_token=abcdef`
 
+## OAUTH2
+
+You can use OAUTH2 to access our cloud services. If you would like to use this, you can send us an email to obtain an account. If you have your clientId, clientSecret and accessable scopes, you can use the URIs below:
+
+Auth URL: https://cloud.crownstone.rocks/oauth/authorize
+Access Token URL: https://cloud.crownstone.rocks/oauth/token
+
+We will provide more information on the OAUTH2 scopes, as well as streamlining the registration process in the near future.
 
 ## Models
 
