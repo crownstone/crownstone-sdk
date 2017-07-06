@@ -32,6 +32,7 @@ Note: if there is more than one parameter with type query, they can be combined 
 You can use OAUTH2 to access our cloud services. If you would like to use this, you can send us an email to obtain an account. If you have your clientId, clientSecret and accessable scopes, you can use the URIs below:
 
 Auth URL: https://cloud.crownstone.rocks/oauth/authorize
+
 Access Token URL: https://cloud.crownstone.rocks/oauth/token
 
 We will provide more information on the OAUTH2 scopes, as well as streamlining the registration process in the near future.
