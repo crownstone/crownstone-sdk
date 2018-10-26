@@ -160,7 +160,18 @@ A wired setup using a Crownstone itself is very hardcore, because you need to ma
 * a JTAG programmer/debugger (we use the [JLink](https://www.segger.com/products/debug-probes/j-link/models/j-link-base/) priced at $300).
 * a connector that fits the JTAG programmer on one side and 4 wires on the other side (ask us for instructions).
 
-The Crownstones have pins that allow them to be programmed by wire. You will need to solder four wires to the pins labelled P1, P2, P3, and P4. Make absolutely sure that you are doubly isolated if the Crownstone is powered via the grid (either 220V/110V). For example, a possible setup is the following: have a Raspberry PI connected via wires to the Crownstone and power the Raspberry PI via a doubly isolated adapter (recognizable by a square inside a square symbol). Reach the Raspberry PI via Wifi (so program it remotely). In this way, you don't risk your development station.
+The Crownstones have pins that allow them to be programmed by wire. You will need to solder four wires to the pins labelled P1-P6. Make absolutely sure that you are doubly isolated if the Crownstone is powered via the grid (either 220V/110V). For example, a possible setup is the following: have a Raspberry PI connected via wires to the Crownstone and power the Raspberry PI via a doubly isolated adapter (recognizable by a square inside a square symbol). Reach the Raspberry PI via Wifi (so program it remotely). In this way, you don't risk your development station.
+
+The pin layout for the ACR01B1D board (the type is written on the PCB):
+
+* P1 is (virtual) ground
+* P2 is 3V3
+* P3 is SWD-clk
+* P4 is SWD-IO
+* P5 is GPIO, currently used as UART TX by the firmware
+* P6 is GPIO, currently used as UART RX by the firmware
+
+![Pin layout](https://raw.githubusercontent.com/crownstone/crownstone-sdk/master/images/pin-layout.png)
 
 Be extremely cautious of course!
 
