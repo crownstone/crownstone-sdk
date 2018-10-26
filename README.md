@@ -162,6 +162,8 @@ A wired setup using a Crownstone itself is very hardcore, because you need to ma
 
 The Crownstones have pins that allow them to be programmed by wire. You will need to solder four wires to the pins labelled P1-P6. Make absolutely sure that you are doubly isolated if the Crownstone is powered via the grid (either 220V/110V). For example, a possible setup is the following: have a Raspberry PI connected via wires to the Crownstone and power the Raspberry PI via a doubly isolated adapter (recognizable by a square inside a square symbol). Reach the Raspberry PI via Wifi (so program it remotely). In this way, you don't risk your development station.
 
+<img align="right" src="https://raw.githubusercontent.com/crownstone/crownstone-sdk/master/images/pin-layout.png" width="30%" alt="Pin layout on the Crownstone printed circuit board (PCB)">
+
 The pin layout for the ACR01B1D board (the type is written on the PCB):
 
 * P1 is (virtual) ground
@@ -170,8 +172,6 @@ The pin layout for the ACR01B1D board (the type is written on the PCB):
 * P4 is SWD-IO
 * P5 is GPIO, currently used as UART TX by the firmware
 * P6 is GPIO, currently used as UART RX by the firmware
-
-![Pin layout](https://raw.githubusercontent.com/crownstone/crownstone-sdk/master/images/pin-layout.png)
 
 Be extremely cautious of course!
 
