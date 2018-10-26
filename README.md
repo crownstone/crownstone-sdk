@@ -146,9 +146,14 @@ If you prefer to install it manually, you can find a step by step installation m
 
 ## Crownstone Hardware
 
-![Image of development kit](https://raw.githubusercontent.com/crownstone/crownstone-sdk/master/images/dev-board.png)
+You can order the Crownstone hardware at the [shop](https://shop.crownstone.rocks). To develop your own firmware you can either perform over-the-air updates via Bluetooth.
 
-The development kit (see picture) is convenient if you want to work on the hardware, but not necessary. The bluenet firmware supports over-the-air updates. You can order the dev kit from [crownstone.rocks](http://crownstone.rocks/).
+A wired development setup will give you information over UART and allows for faster uploading the code to the Crownstone. For this we recommend you to buy the following:
+
+* a JTAG programmer/debugger (we use the [JLink](https://www.segger.com/products/debug-probes/j-link/models/j-link-base/) priced at $300).
+* the Nordic development kit ([nRF 52 DK](https://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF52-DK) priced at $40).
+
+The Crownstones have pins that allow them to be programmed by wire as well. You will need to solder four wires to the pins labelled P1, P2, P3, and P4. Make absolutely sure that you are doubly isolated if the Crownstone is powered via the grid (either 220V/110V). For example, a possible setup is the following: have a Raspberry PI connected via wires to the Crownstone and power the Raspberry PI via a doubly isolated adapter (recognizable by a square inside a square symbol). Reach the Raspberry PI via Wifi (so program it remotely). In this way, you don't risk your development station.
 
 ## <a name="roadmap"></a>Roadmap
 There are still many functionalities in development. This means that some APIs are not there yet, other APIs still need to be implemented, while others may change. 
