@@ -162,6 +162,13 @@ A wired setup using a Crownstone itself is very hardcore, because you need to ma
 
 <img align="right" src="https://raw.githubusercontent.com/crownstone/crownstone-sdk/master/images/pin-layout.png" width="20%" alt="Pin layout on the Crownstone printed circuit board (PCB)">
 
+Note! If you use the JLink, enable uart/serial manually:
+
+    JLinkExe
+    > vcom enable
+    
+Unplug the device and plug it back in. (Crownstone does not need to be attached). Only now you will see it pop-up as `/dev/ttyACM0` (given you've used their `/etc/udev/rules.d/99-jlink.rules` file as well).
+
 The Crownstones have pins that allow them to be programmed by wire. You will need to solder four wires to the pins labelled P1-P6. Make absolutely sure that you are doubly isolated if the Crownstone is powered via the grid (either 220V/110V). For example, a possible setup is the following: have a Raspberry PI connected via wires to the Crownstone and power the Raspberry PI via a doubly isolated adapter (recognizable by a square inside a square symbol). Reach the Raspberry PI via Wifi (so program it remotely). In this way, you don't risk your development station.
 
 The pin layout for the ACR01B1D board (the type is written on the PCB):
