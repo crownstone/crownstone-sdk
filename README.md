@@ -8,11 +8,7 @@ The Crownstone SDK exists of three parts (in an increasing order of integration)
 
 :crown: The [firmware](#bluenet) on the Crownstones, called Bluenet
 
-### <a name="bluenet_lib"></a>Bluetooth
-
-![Image of Bluetooth logo](https://raw.githubusercontent.com/crownstone/crownstone-sdk/master/images/bluetooth-logo.png)
-
-## <a name="rest_api"></a>REST API
+# <a name="rest_api"></a>REST API
 
 The cloud is required to setup the Crownstones: keys and IDs will be generated, and locations can be set.
 After that, it can be used to add users, so they can also make use of your Crownstones.
@@ -21,7 +17,7 @@ You can read how to use it in the [REST API documentation](REST_API.md).
 
 ![Image of Strongloop API Explorer](https://raw.githubusercontent.com/crownstone/crownstone-sdk/master/images/strongloop-api-explorer.png)
 
-## <a name="smartphone_libs"></a>Smartphone libraries
+# <a name="smartphone_libs"></a>Smartphone libraries
 To make things easy, we provide native libraries for smartphones. The following libraries are available and can be found on github:
 
 - [Android](https://github.com/crownstone/bluenet-lib-android)
@@ -31,7 +27,7 @@ The libraries abstract the communication with the Crownstones. They simplify sca
 
 The following features will be available (some are still in development):
 
-#### <a name="bluenet_lib_commands"></a>Commands
+## <a name="bluenet_lib_commands"></a>Commands
 
 - Switch/dim
 - Set time
@@ -43,7 +39,7 @@ The following features will be available (some are still in development):
 - Enable/disable continous scanning
 - Enable/disable continous high frequency power sampling
 
-#### Notified data
+## Notified data
 This data streams in regularly via a callback.
 
 - Switch state (0-100)
@@ -51,7 +47,8 @@ This data streams in regularly via a callback.
 - Total energy usage (Wh)
 - Chip temperature (°C)
 
-#### <a name="bluenet_lib_configs"></a>Get/set configurations:
+## <a name="bluenet_lib_configs"></a>Get/set configurations:
+
 Configurations that can be set and read. 
 
 Note: The enable/disable states can only be set using the corresponding [command](#bluenet_lib_commands) but they can be read through the config.
@@ -65,7 +62,8 @@ Note: The enable/disable states can only be set using the corresponding [command
 - Toggle switch after Crownstone reboot.
 - Continous scanning interval, duration and filter
 
-#### Mesh commands
+## Mesh commands
+
 Commands that can be issued to other Crownstones via the mesh. In case a command asks for a return value, the value will be notified via a callback.
 
 - Switch
@@ -75,7 +73,7 @@ Commands that can be issued to other Crownstones via the mesh. In case a command
 - Enable/disable scanning or high frequency power sampling
 
 
-### Indoor localization
+## Indoor localization
 
 ![Image of Indoor Localization](https://raw.githubusercontent.com/crownstone/crownstone-sdk/master/images/indoor-localization.png)
 
@@ -95,7 +93,7 @@ Features (in development):
 - Get predicted next room
 - Get location (room) of other users
 
-### Example app
+## Smartphone app
 
 ![Image of Example app](https://raw.githubusercontent.com/crownstone/crownstone-sdk/master/images/crownstone-app-small.png)
 ![Second image of Example app](https://raw.githubusercontent.com/crownstone/crownstone-sdk/master/images/crownstone-app-small1.png)
@@ -107,7 +105,7 @@ The [Crownstone app](https://github.com/crownstone/CrownstoneApp) (Android and i
 The Crownstone app can be used as starting point to develop your own stand-alone app.
 It is written in React Native.
 
-## <a name="bluenet"></a>Bluenet Firmware
+# <a name="bluenet"></a>Bluenet Firmware
 
 The [Bluenet](https://github.com/crownstone/bluenet/) firmware can be downloaded from github. For the documentation, see the following links
 
@@ -118,7 +116,7 @@ A step by step description to install the build system required to build and run
 - [License](https://github.com/crownstone/bluenet/blob/master/LICENSE.txt)
 License Agreement
 
-## <a name="bootloader"></a>Bootloader
+# <a name="bootloader"></a>Bootloader
 
 We are using a modified version of the bootloader from the Nordic SDK which can be found [here](https://github.com/crownstone/bluenet-bootloader). 
 
@@ -126,7 +124,25 @@ The bootloader handles starting the firmware, as well as device firmware upload 
 
 Note: The bootloader is optional if the Crownstones are programmed over USB. It is only needed to be able to DFU over the air.
 
-## <a name="bluenet_installation"></a>Installation
+# <a name="bluenet_installation"></a>Installation (In progress)
+
+The installation of the bluenet software and related utilities can be done by cmake as well. First create a workspace,
+say `crownstone`, then clone the different repositories from within this directory.
+
+	mkdir -p crownstone && cd crownstone
+	git clone git@github:crownstone/crownstone-sdk sdk
+	cd sdk
+	mkdir -p build && cd build
+	cmake ..
+	make
+
+This will create a `crownstone/source` directory and download the bluenet source code. After this it will be compiled.
+
+For now, if there no proper `crownstone/config/${target}/CMakeBuild.config` file, the build will fail. Copy it
+manually from the source repository and adjust its values according to your own system.
+
+# <a name="bluenet_installation"></a>Installation (Legacy)
+
 To simplify installation of the Bluenet build system on linux, an `install.sh` script is provided in this repository which downloads and installs everything required to build the Bluenet firmware. 
 
 Note: By using the script you implicitly accept the terms of the license agreement of the JLink/Segger. For the license agreement, see [here](https://www.segger.com/downloads/jlink/jlink_5.12.8_x86_64.deb).
@@ -144,7 +160,7 @@ It will download all necessary dependencies, clone into the Bluenet repository, 
 If you prefer to install it manually, you can find a step by step installation manual [here](https://github.com/crownstone/bluenet/blob/master/INSTALL.md).
 
 
-## <a name="hardware"></a>Crownstone Hardware
+# <a name="hardware"></a>Crownstone Hardware
 
 You can order the Crownstone hardware at the [shop](https://shop.crownstone.rocks). To develop your own firmware you can either (1) perform over-the-air updates via Bluetooth (recommended), (2) have a wired setup using a Nordic development board (more hardcore), and (3) have a wired setup using a Crownstone itself (very hardcore).
 
@@ -182,51 +198,3 @@ The pin layout for the ACR01B1D board (the type is written on the PCB):
 
 Be extremely cautious of course!
 
-## <a name="roadmap"></a>Roadmap
-There are still many functionalities in development. This means that some APIs are not there yet, other APIs still need to be implemented, while others may change. 
-
-### Alpha release
-The alpha release won't include all features listed above, but mainly acts as a first version with stable API.
-It will **not** include:
-- Crownstones:
-    - Dimming
-    - Scanning filter
-    - Enable/disable continous high frequency power sampling
-    - Getting config over the mesh
-- Indoor localization lib:
-    - Predicted next room
-    - Get nearby rooms
-    - Get distance to room
-
-### Beta release
-The following list are planned features or updates for the beta release:
-- Crownstones:
-    - Enable/disable continous high frequency power sampling
-
-### First release candidate
-The following list are planned features or updates for the first release candidate:
-- Crownstones:
-    - Dimming
-    - Improved power measurements
-    - Improved scanning: filters, report result via notifications
-    - Handling multiple user conflicts when they're not connected to the internet
-    - Softfuse
-- Indoor localization lib:
-    - Improve localization
-    - Get predicted next room
-
-### Later releases
-We still have many features that we want to implement, like:
-- Crownstones:
-    - Enable Eddystone support
-    - Device recognition: use the high frequency power sampling to automatically recognize what device is plugged in the Crownstone
-
-- Indoor localization lib:
-    - Automatic discovery of crownstone location: just walking around with your smartphone is enough to calibrate the indoor localization
-
-- Integration with 3rd parties:
-    - IFTTT
-    - Zapier
-    - Philips Hue
-    - Homey
-    - etc.
