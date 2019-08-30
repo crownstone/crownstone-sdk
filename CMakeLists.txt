@@ -39,3 +39,58 @@ ExternalProject_Add(bootstrap
 	INSTALL_COMMAND cmake -E echo "Skipping install step."
 )
 
+set(NORDIC_DOWNLOAD_URL https://www.nordicsemi.com/-/media/Software-and-other-downloads/SDKs)
+
+# If files are updated... Also update the md5 hash, e.g. through `md5sum downloads/*`
+set(NORDIC_NRF5_SDK_DOWNLOAD_URL ${NORDIC_DOWNLOAD_URL}/nRF5/Binaries/nRF5SDK153059ac345.zip)
+set(NORDIC_NRF5_SDK_MD5 46a8c9cd4b5d7ee4c5142e8fae3444c4)
+set(NORDIC_MESH_SDK_DOWNLOAD_URL ${NORDIC_DOWNLOAD_URL}/nRF5-SDK-for-Mesh/nrf5SDKforMeshv320src.zip)
+set(NORDIC_MESH_SDK_MD5 29e813a85e209fd07837c4fd3c616178)
+
+ExternalProject_Add(nordic_sdk
+	DOWNLOAD_DIR ${WORKSPACE_PATH}/downloads
+	SOURCE_DIR ${WORKSPACE_PATH}/tools/nrf5_sdk
+	URL ${NORDIC_NRF5_SDK_DOWNLOAD_URL}
+	URL_MD5 ${NORDIC_NRF5_SDK_MD5}
+	CONFIGURE_COMMAND ${CMAKE_COMMAND} -E echo "Skipping configure step."
+	BUILD_COMMAND ${CMAKE_COMMAND} -E echo "Skipping build step."
+	INSTALL_COMMAND ${CMAKE_COMMAND} -E echo "Skipping install step."
+)
+
+ExternalProject_Add(nordic_mesh_sdk
+	DOWNLOAD_DIR ${WORKSPACE_PATH}/downloads
+	SOURCE_DIR ${WORKSPACE_PATH}/tools/mesh_sdk
+	URL ${NORDIC_MESH_SDK_DOWNLOAD_URL}
+	URL_MD5 ${NORDIC_MESH_SDK_MD5}
+	CONFIGURE_COMMAND ${CMAKE_COMMAND} -E echo "Skipping configure step."
+	BUILD_COMMAND ${CMAKE_COMMAND} -E echo "Skipping build step."
+	INSTALL_COMMAND ${CMAKE_COMMAND} -E echo "Skipping install step."
+)
+
+set(JLINK_DOWNLOAD_URL https://www.segger.com/downloads/jlink)
+set(JLINK_DEB_FILE JLink_Linux_V650_x86_64.deb)
+set(JLINK_LINUX_DOWNLOAD_URL ${JLINK_DOWNLOAD_URL}/${JLINK_DEB_FILE})
+set(JLINK_MD5 bdf926715a45dfd930d4516e6a5027c1)
+
+ExternalProject_Add(jlink
+	DOWNLOAD_COMMAND wget  --post-data "accept_license_agreement=accepted" ${JLINK_LINUX_DOWNLOAD_URL} -O ${WORKSPACE_PATH}/downloads/${JLINK_DEB_FILE} 
+	DOWNLOAD_DIR ${WORKSPACE_PATH}/downloads
+	URL ${JLINK_LINUX_DOWNLOAD_URL}
+	URL_MD5 ${JLINK_MD5}
+	DOWNLOAD_NO_EXTRACT 1
+	CONFIGURE_COMMAND ${CMAKE_COMMAND} -E echo "Skipping configure step."
+	BUILD_COMMAND ${CMAKE_COMMAND} -E echo "Skipping build step."
+	INSTALL_COMMAND sudo dpkg -i ${WORKSPACE_PATH}/downloads/${JLINK_DEB_FILE} 
+)
+
+set(GCC_ARM_NONE_EABI_DOWNLOAD_URL https://developer.arm.com/-/media/Files/downloads/gnu-rm/8-2019q3/RC1.1/gcc-arm-none-eabi-8-2019-q3-update-linux.tar.bz2?revision=c34d758a-be0c-476e-a2de-af8c6e16a8a2?product=GNU%20Arm%20Embedded%20Toolchain,64-bit,,Linux,8-2019-q3-update)
+
+ExternalProject_Add(arm-gnue
+	DOWNLOAD_DIR ${WORKSPACE_PATH}/downloads
+	URL ${GCC_ARM_NONE_EABI_DOWNLOAD_URL}
+	SOURCE_DIR ${WORKSPACE_PATH}/tools/gcc_arm_none_eabi
+	CONFIGURE_COMMAND ${CMAKE_COMMAND} -E echo "Skipping configure step."
+	BUILD_COMMAND ${CMAKE_COMMAND} -E echo "Skipping build step."
+	INSTALL_COMMAND ${CMAKE_COMMAND} -E echo "Skipping install step."
+)
+
