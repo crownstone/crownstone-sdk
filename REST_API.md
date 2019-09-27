@@ -27,6 +27,58 @@ Note: every api call except `/users/login` and `/users/resendVerification` has t
 
 Note: if there is more than one parameter with type query, they can be combined with &, e.g. `/Stones/findLocation?address=abcd&access_token=abcdef`
 
+## Getting Started
+
+The first entry point for logging in the user can be found at
+
+- https://cloud.crownstone.rocks/api/users/login
+
+The body will need to have an email and password (SHA1) hash:
+
+    { "email": "customer_email", "password": "customer_password_has }
+
+If you're on Linux, create the hash like this:
+
+     echo -n password | sha1sum
+
+You can test your email/password combination in the [explorer](https://cloud.crownstone.rocks/explorer/#!/user/user_login) (for now).
+
+The result is a json struct with a field `.id`. This is the token that can be used for your session, let's call it `$access_token`. Its standard time-to-life is two weeks.
+
+The next piece of information you would like to have is the user id. You can obtain this through:
+
+- https://cloud.crownstone.rocks/api/users/me?access_token=$access_token
+
+The returned json struct contains again a field `.id` which is in this case the user id, let's refer to it as `$user_id`.
+
+Now for example you want to obtain the `spheres` from a user:
+
+- https://cloud.crownstone.rocks/api/users/$user_id/spheres?access_token=$access_token
+
+This will return an array of spheres like:
+
+	[
+	  {
+		"name": "office",
+		...
+		"id": "$sphere_id",
+		"ownerId": "$owner_id",
+		"createdAt": "2016-12-21T15:47:46.206Z",
+		"updatedAt": "2019-09-17T10:11:52.864Z"
+	  },
+	  ...
+	]
+
+Now to get the Crownstones and Guidestones in this particular sphere, 
+
+- https://cloud.crownstone.rocks/api/spheres/$sphere_id/ownedStones?access_token=$access_token
+
+Or to get the people present in that sphere:
+
+- https://cloud.crownstone.rocks/api/spheres/$sphere_id/presentPeople?access_token=$access_token
+
+For more choices, see below. This quick intro should be enough to get you started!
+
 ## OAUTH2
 
 You can use OAUTH2 to access our cloud services. If you would like to use this, you can send us an email to obtain an account. If you have your clientId, clientSecret and accessable scopes, you can use the URIs below:
