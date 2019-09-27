@@ -35,7 +35,7 @@ The first entry point for logging in the user can be found at
 
 The body will need to have an email and password (SHA1) hash:
 
-    { "email": "customer_email", "password": "customer_password_has }
+    { "email": "customer_email", "password": "customer_password_hash" }
 
 If you're on Linux, create the hash like this:
 
