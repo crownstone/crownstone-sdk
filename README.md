@@ -185,6 +185,11 @@ Note! If you use the JLink, enable uart/serial manually:
     
 Unplug the device and plug it back in. (Crownstone does not need to be attached). Only now you will see it pop-up as `/dev/ttyACM0` (given you've used their `/etc/udev/rules.d/99-jlink.rules` file as well).
 
+For pros. If you want to power something from the JLink as well. You can set the JLink such that it provides power rather than checks for power.
+
+    JLinkExe
+    > power on perm
+
 The Crownstones have pins that allow them to be programmed by wire. You will need to solder four wires to the pins labelled P1-P6. Make absolutely sure that you are doubly isolated if the Crownstone is powered via the grid (either 220V/110V). For example, a possible setup is the following: have a Raspberry PI connected via wires to the Crownstone and power the Raspberry PI via a doubly isolated adapter (recognizable by a square inside a square symbol). Reach the Raspberry PI via Wifi (so program it remotely). In this way, you don't risk your development station.
 
 The pin layout for the ACR01B1D board (the type is written on the PCB):
