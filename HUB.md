@@ -20,6 +20,7 @@ The current setup with our dongle requires the following manual steps. We will a
 and are able to control a couple of Crownstones, either built-in or plugs. If you done this, this means that:
 * you have an account on the Crownstone cloud, at <https://my.crownstone.rocks>,
 * you have a so-called `sphere` (a collection of Crownstones including keys for encrypting data to/from those Crownstones). 
+
 Later on, we will support the following steps from the smartphone app, but for now you will have to manually add the Crownstone USB dongle to your sphere.
 
 1. Plug in the Crownstone USB dongle to your device.
@@ -44,6 +45,8 @@ Later on, we will support the following steps from the smartphone app, but for n
   }
   ```
 14. You're done! The hub is now connected to the Crownstone cloud.
+
+Note that these steps are only required in this early phase! Later on, the Crownstone app will take care of this. Moreover, the process will use the USB dongle itself and the Bluetooth connection to the dongle. The end point <https://192.168.0.66:5050/explorer/#/HubController/HubController.createHub> will then be removed again.
 
 # The hub API
 
