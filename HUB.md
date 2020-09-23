@@ -47,4 +47,4 @@ Later on, we will support the following steps from the smartphone app, but for n
 
 # The hub API
 
-There is an API available on the hub with which data can be obtained directly from the hub. 
+There is an API available on the hub with which data can be obtained directly from the hub. As soon as this is available this document will be update with a pointer to where you can learn more.
