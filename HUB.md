@@ -12,9 +12,39 @@ If you want to obtain the data that resides on the hub, there's an API for that 
 # Your own hub
 
 You can run our software on your own hub as long as it is compatible with the "snap" system from Ubuntu and you have bought a USB dongle 
-from <https://shop.crownstone.rocks>. The installation is straightforward:
+from <https://shop.crownstone.rocks>. First you have to install the right software on the hub and give the right permissions.
+
+## Setup of the hub
+
+The installation of software is straightforward:
 
     sudo snap install crownstone-hub
+
+Now, this snap has to get access to the USB dongle over serial (or "UART"). First set the "hotplug" option to true and restart the daemon:
+
+    sudo snap set system experimental.hotplug=true
+    sudo systemctl restart snapd
+
+Stick the Crownstone USB dongle in an USB port and check if its interface can be found:
+
+    if [ $( snap interface serial-port | grep 'snapd:cp2102cp2109uartbrid' | wc -l ) -lt 1 ]; then
+        snap interface serial-port
+        echo "Crownstone USB stick was not found!"
+        exit 1
+    fi
+
+Give the hub access to the Crownstone USB dongle:
+
+    sudo snap connect crownstone-hub:serial-port core:cp2102cp2109uartbrid
+
+Give some additional permissions to the hub:
+
+    sudo snap connect crownstone-hub:removable-media          :removable-media
+    sudo snap connect crownstone-hub:serial-port              pi:bt-serial
+
+Now you are ready to configure the USB dongle itself, which connects everything to the Crownstone cloud using your authentication data.
+
+## Setup with the USB dongle
 
 The current setup with our dongle requires the following manual steps. We will assume you have create an account via the [Crownstone consumer app](https://crownstone.rocks/app/)
 and are able to control a couple of Crownstones, either built-in or plugs. If you done this, this means that:
