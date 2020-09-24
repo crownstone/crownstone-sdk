@@ -25,21 +25,17 @@ Now, this snap has to get access to the USB dongle over serial (or "UART"). Firs
     sudo snap set system experimental.hotplug=true
     sudo systemctl restart snapd
 
-Stick the Crownstone USB dongle in an USB port and check if its interface can be found:
-
-    if [ $( snap interface serial-port | grep 'snapd:cp2102cp2109uartbrid' | wc -l ) -lt 1 ]; then
-        snap interface serial-port
-        echo "Crownstone USB stick was not found!"
-        exit 1
-    fi
-
-Give the hub access to the Crownstone USB dongle:
+Stick the Crownstone USB dongle in an USB port and give the hub access to the Crownstone USB dongle:
 
     sudo snap connect crownstone-hub:serial-port core:cp2102cp2109uartbrid
 
-Give some additional permissions to the hub:
+Optionally, give permission to some additional interfaces we don't use yet, but that might be used later:
 
     sudo snap connect crownstone-hub:serial-port              pi:bt-serial
+    sudo snap install bluez
+    sudo snap connect crownstone-hub:bluez                    bluez:service
+    sudo snap connect crownstone-hub:bluetooth-control        :bluetooth-control
+    sudo snap connect crownstone-hub:removable-media          :removable-media
 
 Last, but not least, the crownstone-hub snap uses a mongo database. There's no default snap for mongo available, so we packaged one for you:
 
