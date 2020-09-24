@@ -25,7 +25,7 @@ Now, this snap has to get access to the USB dongle over serial (or "UART"). Firs
     sudo snap set system experimental.hotplug=true
     sudo systemctl restart snapd
 
-Stick the Crownstone USB dongle in an USB port and give the hub access to the Crownstone USB dongle:
+Stick the Crownstone USB dongle in an USB port and give the hub access to the Crownstone USB dongle. Note: this will give it access to only this USB dongle.
 
     sudo snap connect crownstone-hub:serial-port core:cp2102cp2109uartbrid
 
