@@ -39,8 +39,11 @@ Give the hub access to the Crownstone USB dongle:
 
 Give some additional permissions to the hub:
 
-    sudo snap connect crownstone-hub:removable-media          :removable-media
     sudo snap connect crownstone-hub:serial-port              pi:bt-serial
+
+Last, but not least, the crownstone-hub snap uses a mongo database. There's no default snap for mongo available, so we packaged one for you:
+
+    sudo snap install crownstone-mongo
 
 Now you are ready to configure the USB dongle itself, which connects everything to the Crownstone cloud using your authentication data.
 
