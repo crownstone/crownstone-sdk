@@ -66,19 +66,20 @@ and are able to control a couple of Crownstones, either built-in or plugs. If yo
 
 Later on, we will support the following steps from the smartphone app, but for now you will have to manually add the Crownstone USB dongle to your sphere.
 
-1. Plug in the Crownstone USB dongle to your device.
-2. Go to the Crownstone cloud at <https://my.crownstone.rocks> and get a token.
-3. Go subsequently to the explorer at <https://my.crownstone.rocks/explorer> and populate the token field in the top.
-4. Get your `userId` via [Get /users/me](https://cloud.crownstone.rocks/explorer/#!/user/user_me).
-5. Find the `sphereId` of your sphere via [Get /users/{id}/spheres](https://cloud.crownstone.rocks/explorer/#!/user/user_spheres).
-6. Create a new `token` (this is a different token then the one for logging in, one you invent yourself!). It should be 64 random bytes in hexstring format (so 128 characters). You can use [my.crownstone.rocks/generateHubToken](https://my.crownstone.rocks/generateHubToken) to generate one.
-7. Create a hub instance by [Post /Spheres/{id}/hub](https://cloud.crownstone.rocks/explorer/#!/Sphere/Sphere_createHub). The `id` is the `sphereId`, the `token` is the one you just generated, and the `name` is how you want to call your hub.
-8. Get the hub cloud `id` from [Get /Spheres/{id}/hubs](https://my.crownstone.rocks/explorer/#!/Sphere/Sphere_prototype_get_hubs), and write it down, as you'll need it later.
-9. Get the `sphereAuthorizationToken` of the correct sphere from [Get /users/{id}/keysV2](https://my.crownstone.rocks/explorer/#!/user/user_getEncryptionKeysV2).
-10. Find the IP address of the hub. Say it is at <https://192.168.0.66>, then go to port 5050: <https://192.168.0.66:5050>.
-11. If according to your browser the certificates are not valid, click "Yes I know", or something similar to continue.
-12. Click `Authorize` on the top right, and fill in the `sphereAuthorizationToken`.
-13. Tell the hub about its Crownstone cloud account. You can post to an endpoint on the hub. Given the above IP address, this is <https://192.168.0.66:5050/explorer/#/HubController/HubController.createHub>. Use the following format:
+- Plug in the Crownstone USB dongle to your device.
+- Go to the Crownstone cloud at <https://my.crownstone.rocks> and get a token.
+- Go subsequently to the explorer at <https://my.crownstone.rocks/explorer> and populate the token field in the top.
+- Go to [Get /users/me](https://cloud.crownstone.rocks/explorer/#!/user/user_me) and click `Try it out`, the copy the `id`.
+- Similarly, get the `id` of your sphere via [Get /users/{id}/spheres](https://cloud.crownstone.rocks/explorer/#!/user/user_spheres). Fill in your user id in the **id** field, and click `Try it out`.
+- Create a new `token` (this is a different token then the one for logging in, one you generate yourself!). It should be 64 random bytes in hexstring format (so 128 hex characters). You can use [my.crownstone.rocks/generateHubToken](https://my.crownstone.rocks/generateHubToken) to generate one.
+- Create a hub instance by [Post /Spheres/{id}/hub](https://cloud.crownstone.rocks/explorer/#!/Sphere/Sphere_createHub). Fill in your sphere id in the **id** fiels, the generated token in the **token** field, and a name in the **name** field. Click `Try it out`, and check if it was a success.
+- Get the hub `id` from [Get /Spheres/{id}/hubs](https://my.crownstone.rocks/explorer/#!/Sphere/Sphere_prototype_get_hubs), and write it down, as you'll need it later.
+- Get the `sphereAuthorizationToken` of the correct sphere from [Get /users/{id}/keysV2](https://my.crownstone.rocks/explorer/#!/user/user_getEncryptionKeysV2).
+- Find the IP address of the hub. Say it is at 192.168.0.66, then go to port 5050, and use https: https://192.168.0.66:5050.
+- If according to your browser the certificates are not valid, click "Yes I know", or something similar to continue.
+- Go to the explorer.
+- Click `Authorize` on the top right, and fill in the `sphereAuthorizationToken`, then click `Close`.
+- Tell the hub about its Crownstone cloud account. You can post to an endpoint on the hub. Given the above IP address, this is <https://192.168.0.66:5050/explorer/#/HubController/HubController.createHub>. Use the following format:
   ```
   {
     "name": "name from cloud",
