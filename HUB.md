@@ -2,19 +2,24 @@
 
 The Crownstone hub can be configured with the Crownstone app. If you have bought the hub from <https://shop.crownstone.rocks> you do not have to do anything else, 
 it will be all operational. Under the hood there is an Ubuntu Core system that gets software updates via so-called snaps. The data is stored on the hub itself,
-in a Mongo database. The hub does have a USB dongle to directly tap into the Bluetooth Mesh used by Crownstones. Note that other devices that use Bluetooth Mesh 
+in a Mongo database. The hub has a USB dongle to directly tap into the Bluetooth Mesh used by Crownstones. Note that other devices that use Bluetooth Mesh 
 are not necessarily compatible with our software (feel free to suggest integrations). The data on the hub is exchanged with the Crownstone servers. The hub also 
-operates as a way in which it can disseminate commands to the Crownstones from the Crownstone cloud or you phone on your LAN (say, your Wi-Fi network at home). 
+operates as a way in which it can disseminate commands to the Crownstones from the Crownstone cloud or your phone on your LAN (say, your Wi-Fi network at home). 
 If you want to obtain the data that resides on the hub, there's an API for that (see below). This is a good alternative if:
 * you do not want to rely on accessing the Crownstone cloud (which will throttle your data)
 * you do not want to store the data on the Crownstone cloud.
 
-# Your own hub
+Index
+
+- [Setting up your own hub](#own_hub)
+- [How to manually setup the hub software](#manual_setup)
+- [Hub API](#api)
+
+<a name="own_hub"></a>
+# Setup of your own hub
 
 You can run our software on your own hub as long as it is compatible with the "snap" system from Ubuntu and you have bought a USB dongle 
 from <https://shop.crownstone.rocks>. First you have to install the right software on the hub and give the right permissions.
-
-## Setup of the hub
 
 Currently, the correct time zone should be set:
 
@@ -47,7 +52,8 @@ Last, but not least, the crownstone-hub snap uses a mongo database. There's no d
 
 Now you are ready to configure the USB dongle itself, which connects everything to the Crownstone cloud using your authentication data.
 
-## Setup of the hub software
+<a name="manual_setup"></a>
+# Manual setup of the hub software
 
 The current setup with our dongle requires the following manual steps. We will assume you have create an account via the [Crownstone consumer app](https://crownstone.rocks/app/)
 and are able to control a couple of Crownstones, either built-in or plugs. If you done this, this means that:
@@ -81,6 +87,7 @@ Later on, we will support the following steps from the smartphone app, but for n
 
 Note that these steps are only required in this early phase! Later on, the Crownstone app will take care of this. Moreover, the process will use the USB dongle itself and the Bluetooth connection to the dongle. The end point <https://192.168.0.66:5050/explorer/#/HubController/HubController.createHub> will then be removed again.
 
+<a name="api"></a>
 # The hub API
 
 There is an API available on the hub with which data can be obtained directly from the hub. As soon as this is available this document will be update with a pointer to where you can learn more.
