@@ -16,6 +16,10 @@ from <https://shop.crownstone.rocks>. First you have to install the right softwa
 
 ## Setup of the hub
 
+Currently, the correct time zone should be set:
+
+    sudo timedatectl set-timezone Europe/Amsterdam
+
 The installation of software is straightforward:
 
     sudo snap install crownstone-hub
@@ -43,7 +47,7 @@ Last, but not least, the crownstone-hub snap uses a mongo database. There's no d
 
 Now you are ready to configure the USB dongle itself, which connects everything to the Crownstone cloud using your authentication data.
 
-## Setup with the USB dongle
+## Setup of the hub software
 
 The current setup with our dongle requires the following manual steps. We will assume you have create an account via the [Crownstone consumer app](https://crownstone.rocks/app/)
 and are able to control a couple of Crownstones, either built-in or plugs. If you done this, this means that:
