@@ -71,7 +71,7 @@ Later on, we will support the following steps from the smartphone app, but for n
 3. Go subsequently to the explorer at <https://my.crownstone.rocks/explorer> and populate the token field in the top.
 4. Get your `userId` via [Get /users/me](https://cloud.crownstone.rocks/explorer/#!/user/user_me).
 5. Find the `sphereId` of your sphere via [Get /users/{id}/spheres](https://cloud.crownstone.rocks/explorer/#!/user/user_spheres).
-6. Create a new `token` (this is a different token then the one for logging in, one you invent yourself!). It should be 64 random bytes in hexstring format (so 128 characters).
+6. Create a new `token` (this is a different token then the one for logging in, one you invent yourself!). It should be 64 random bytes in hexstring format (so 128 characters). You can use [my.crownstone.rocks/generateHubToken](https://my.crownstone.rocks/generateHubToken) to generate one.
 7. Create a hub instance by [Post /Spheres/{id}/hub](https://cloud.crownstone.rocks/explorer/#!/Sphere/Sphere_createHub). The `id` is the `sphereId`, the `token` is the one you just generated, and the `name` is how you want to call your hub.
 8. Get the hub cloud `id` from [Get /Spheres/{id}/hubs](https://my.crownstone.rocks/explorer/#!/Sphere/Sphere_prototype_get_hubs), and write it down, as you'll need it later.
 9. Get the `sphereAuthorizationToken` of the correct sphere from [Get /users/{id}/keysV2](https://my.crownstone.rocks/explorer/#!/user/user_getEncryptionKeysV2).
