@@ -21,9 +21,13 @@ Index
 You can run our software on your own hub as long as it is compatible with the "snap" system from Ubuntu and you have bought a USB dongle 
 from <https://shop.crownstone.rocks>. First you have to install the right software on the hub and give the right permissions.
 
-Currently, the correct time zone should be set:
+Set the correct time zone:
 
     sudo timedatectl set-timezone Europe/Amsterdam
+
+Optionally, [change the update interval](https://snapcraft.io/docs/keeping-snaps-up-to-date):
+
+    sudo snap set system refresh.timer=00:00~24:00/24
 
 The installation of software is straightforward:
 
