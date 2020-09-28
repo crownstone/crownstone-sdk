@@ -29,6 +29,10 @@ Optionally, [change the update interval](https://snapcraft.io/docs/keeping-snaps
 
     sudo snap set system refresh.timer=00:00~24:00/24
 
+The crownstone-hub snap uses a mongo database. There's no default snap for mongo available, so we packaged one for you:
+
+    sudo snap install crownstone-mongo
+
 The installation of software is straightforward:
 
     sudo snap install crownstone-hub
@@ -50,11 +54,7 @@ Optionally, give permission to some additional interfaces we don't use yet, but 
     sudo snap connect crownstone-hub:bluetooth-control        :bluetooth-control
     sudo snap connect crownstone-hub:removable-media          :removable-media
 
-Last, but not least, the crownstone-hub snap uses a mongo database. There's no default snap for mongo available, so we packaged one for you:
-
-    sudo snap install crownstone-mongo
-
-Now you are ready to configure the USB dongle itself, which connects everything to the Crownstone cloud using your authentication data.
+Now you are ready to setup the hub software itself, which connects everything to the Crownstone cloud using your authentication data.
 
 <a name="manual_setup"></a>
 # Manual setup of the hub software
