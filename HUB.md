@@ -16,8 +16,9 @@ Index
 - [How to manually setup the hub software](#manual_setup)
 - [Hub API](#api)
 
+
 <a name="updating"></a>
-# Updating your Crownstones
+# Setting up and updating your Crownstones
 
 In order for the energymeasurement to work, and in order for the Crownstone USB dongle to be able to communicate with the hub, you need to update all Crownstones (including the dongle) to firmware 5.3.0. At the moment this firmware is released only to our BETA users. To join the beta program, make a Crownstone account and send an email to `access[at]crownstone.rocks`. Please mention the email address used to login to our cloud so we can enable BETA access for your account. After your phone syncs with the cloud, the new firmware can be installed via the Crownstone consumer app. The syncing takes place every 10 minutes and on app boot.
 
@@ -29,6 +30,7 @@ Summarized:
     - Request to join the beta program.
     - Provide the email you used to create the account.
 - Add the Crownstone USB dongle, and other Crownstones to your sphere.
+    - Make sure the Crownstone is powered.
     - In the sphere overview, click the `(+)` button at the bottom right.
     - Select `Crownstone`.
     - Follow the steps.
@@ -88,6 +90,7 @@ Optionally, give permission to some additional interfaces we don't use yet, but 
 
 Now you are ready to setup the hub software itself, which connects everything to the Crownstone cloud using your authentication data.
 
+
 <a name="manual_setup"></a>
 # Manual setup of the hub software
 
@@ -125,11 +128,6 @@ Later on, we will support the following steps from the smartphone app, but for n
 
 Note that these steps are only required in this early phase! Later on, the Crownstone app will take care of this. Moreover, the process will use the USB dongle itself and the Bluetooth connection to the dongle. The end point [HubController Post /hub](https://192.168.0.0:5050/explorer/#/HubController/HubController.createHub) will then be removed again.
 
-You are **not** done yet! You will have to run setup through the Crownstone app in a normal fashion. Forgive the bad resolution, but this gives some expression of the setup if you haven't seen it before.
-
-![step1](https://user-images.githubusercontent.com/1428585/94725107-8f899d80-035b-11eb-859f-819d5b74f296.jpg)  ![step2](https://user-images.githubusercontent.com/1428585/94725125-94e6e800-035b-11eb-95cb-188d3929e0ba.jpg)  ![step3](https://user-images.githubusercontent.com/1428585/94725137-99130580-035b-11eb-9bc2-972625e0772c.jpg)  ![step4](https://user-images.githubusercontent.com/1428585/94725149-9c0df600-035b-11eb-9aa8-e845f881acac.jpg)
-
-You add a Crownstone USB dongle by pressing the plus sign at the right bottom in the app. (This assumes you have already installed Crownstones before.) Choose the USB dongle and follow the guide. In the end you'll have a hub device in your app (it is located in a room, but there are no options yet). It just functions as a passthrough device towards the Crownstone mesh.
 
 <a name="api"></a>
 # The hub API
