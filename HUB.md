@@ -28,8 +28,16 @@ Summarized:
 - Send an email to `access[at]crownstone.rocks`
     - Request to join the beta program.
     - Provide the email you used to create the account.
+- Add the Crownstone USB dongle, and other Crownstones to your sphere.
+    - In the sphere overview, click the `(+)` button at the bottom right.
+    - Select `Crownstone`.
+    - Follow the steps.
+    - Repeat this for every Crownstone (and Crownstone USB dongle).
 - Wait for your phone to sync with the cloud (should take less than 15 minutes).
 - You should now be able to update your Crownstones to version 5.3.0.
+    - A blue bar with `Update available` will be on top.
+    - Click it, and verify the "What's new" mentions the Crownstone hub.
+    - Update all Crownstones and USB dongles.
 
 You can check the firmware version of a Crownstone in the consumer app by going to the room your Crownstone is in, tapping on the title of the Crownstone, tapping Edit in the top right corner and scroll to the bottom of the screen.
 
