@@ -21,6 +21,8 @@ Index
 
 In order for the energymeasurement to work, and in order for the Crownstone USB dongle to be able to communicate with the hub, you need to update all Crownstones (including the dongle) to firmware 5.3.0. At the moment this firmware is released only to our BETA users. To join the beta program, make a Crownstone account and send an email to `access[at]crownstone.rocks`. Please mention the email address used to login to our cloud so we can enable BETA access for your account. After your phone syncs with the cloud, the new firmware can be installed via the Crownstone consumer app. The syncing takes place every 10 minutes and on app boot.
 
+You can check the firmware version of a Crownstone in the consumer app by going to the room your Crownstone is in, tapping on the title of the Crownstone, tapping Edit in the top right corner and scroll to the bottom of the screen.
+
 <a name="own_hub"></a>
 # Setup of your own hub
 
