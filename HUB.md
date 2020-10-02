@@ -11,9 +11,15 @@ If you want to obtain the data that resides on the hub, there's an API for that 
 
 Index
 
+- [Updating your Crownstones](#updating)
 - [Setting up your own hub](#own_hub)
 - [How to manually setup the hub software](#manual_setup)
 - [Hub API](#api)
+
+<a name="updating"></a>
+# Updating your Crownstones
+
+In order for the energymeasurement to work, and in order for the Crownstone USB dongle to be able to communicate with the hub, you need to update all Crownstones (including the dongle) to firmware 5.3.0. At the moment this firmware is released only to our BETA users. To join the beta program, make a Crownstone account and send an email to `access[at]crownstone.rocks`. Please mention the email address used to login to our cloud so we can enable BETA access for your account. After your phone syncs with the cloud, the new firmware can be installed via the Crownstone consumer app. The syncing takes place every 10 minutes and on app boot.
 
 <a name="own_hub"></a>
 # Setup of your own hub
