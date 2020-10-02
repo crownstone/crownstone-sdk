@@ -8,7 +8,7 @@ The Crownstone SDK exists of three parts (in an increasing order of integration)
 
 :crown: The [firmware](#bluenet) on the Crownstones, called **bluenet**.
 
-:computer: A hub(#hub) to bridge a Crownstone mesh to the cloud.
+:computer: A [hub](#hub) to bridge a Crownstone mesh to the cloud.
 
 # <a name="rest_api"></a>REST API
 
