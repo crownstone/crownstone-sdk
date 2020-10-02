@@ -6,7 +6,9 @@ The Crownstone SDK exists of three parts (in an increasing order of integration)
 
 :iphone: Smartphone [libraries](#smartphone_libs)
 
-:crown: The [firmware](#bluenet) on the Crownstones, called Bluenet
+:crown: The [firmware](#bluenet) on the Crownstones, called **bluenet**.
+
+:computer: A hub(#hub) to bridge a Crownstone mesh to the cloud.
 
 # <a name="rest_api"></a>REST API
 
@@ -26,6 +28,10 @@ The documentation on the smartphone application can be found [here](smartphones/
 # <a name="bluenet"></a>Bluenet Firmware
 
 An entry to the documentation of the firmware can be found [here](firmware/).
+
+# <a name="hub"></a>Crownstone Hub
+
+An entry to the documentation of the hub can be found [here](hub/).
 
 
 
