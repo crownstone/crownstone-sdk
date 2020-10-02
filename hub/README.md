@@ -132,10 +132,9 @@ Note that these steps are only required in this early phase! Later on, the Crown
 <a name="api"></a>
 # The Hub API
 
-(There is an API available on the hub with which data can be obtained directly from the hub. More information here.)[./ENDPOINTS.md]
+TThere is an API available on the hub with which data can be obtained directly from the hub. This has quite some info, so we create a separate document for this. See this [document](ENDPOINTS.md).
 
 <a name="examples"></a>
 # Hub usage examples
 
-In the example folder there are two examples. One to get data [using a nodejs script](./examples/example.js) and one [where we get the data
-                                                                                                                      in a browser.](./examples/example.html)
+In the [examples](examples/) folder there are two examples. One to get data using a  script [.js file](./examples/example.js) and one where we get the data in a browser [.html file](./examples/example.html).
