@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>How to get data</title>
+</head>
+<body>
+<div id="availabilityContent" style="white-space: pre-wrap; position:absolute; top:10px; right:10px; width:600px"></div>
+<h1>Authorization</h1>
+<div id="tokenInputWrapper" style="display:block">
+    <p>Please input your sphereAuthorizationToken here:</p>
+    <input id="tokenInput" style="width:500px" />
+    <p><i>It has to be 64 characters long.</i></p>
+</div>
+<h1>Hub ip address</h1>
+<div id="ipAddressWrapper" style="display:block">
+    <p>Please put the ipaddress of your hub here. Once that's done, you need to open it at least once and accept the self-signed certificate.</p>
+    <p>If this page is never visted on this browser, all requests from this example will fail..</p>
+    <input id="ipAddress" value="example:192.168.0.204" style="width:300px" />
+    <input type="button" onclick="openHubPage()" value="Say Hello!" />
+</div>
+<h1>Getting data availability</h1>
+<div id="dataAbailabilityWrapper" style="display:block">
+    <p>If all the above is correct, press Get Availability!</p>
+    <input type="button" value="Get Availability!" onclick="getAvailableData()" />
+
+</div>
+<h1>Getting data</h1>
+<div id="data" style="display:block">
+    <p>Select a crownstone UID from the list above and press Get Data! It's the one between brackets</p>
+    <input id="crownstoneUID" type="number" value="" style="width:100px" />
+    <input type="button" value="Get Data!" onclick="getEnergyData()" />
+    <div id="dataContent"></div>
+</div>
+
+<script>
+  // Util method
+  function makeRestRequest(path, success, error) {
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = false
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          success(xhr.responseText, path);
+        }
+        else {
+          if (error === undefined) {
+            console.error("ERROR:", path)
+          }
+          else {
+            error();
+          }
+        }
+      }
+    };
+    xhr.open("GET", path, true);
+
+    xhr.send();
+  }
+
+  // Get all DOM refernces so we can get their data:
+  let IpRef            = document.getElementById("ipAddress");
+  let TokenRef         = document.getElementById("tokenInput");
+  let AvailabilityRef  = document.getElementById("availabilityContent");
+  let DataRef          = document.getElementById("dataContent");
+  let CrownstoneUidRef = document.getElementById("crownstoneUID");
+
+
+  function openHubPage() {
+    // get the IP address from the DOM and catch a few likely issues.
+    let ipAddress = IpRef.value;
+    ipAddress.replace("example:",'');
+    ipAddress.replace(":5050",'');
+    if (!ipAddress) { return alert("Invalid ip address...") }
+
+    window.open(`https://${ipAddress}:5050`)
+  }
+
+  // handle a click on the Get Availability! button.
+  function getAvailableData() {
+    // get the IP address from the DOM and catch a few likely issues.
+    let ipAddress = IpRef.value;
+    ipAddress.replace("example:",'');
+    ipAddress.replace(":5050",'');
+    if (!ipAddress) { return alert("Invalid ip address...") }
+
+    // get the token from the DOM
+    let token = TokenRef.value;
+    if (token.length !== 64) { return alert("Invalid token. Must be 64 characters long.") }
+
+    // request the data.
+    makeRestRequest(`https://${ipAddress}:5050/api/energyAvailability?access_token=${token}`, (data) => {
+      let dataArr = JSON.parse(data);
+      AvailabilityRef.innerHTML = "<h1>Available Data:</h1><br /><code>" + JSON.stringify(dataArr, undefined, 2) + "</code>";
+    }, (err) => {
+      alert("Something went wrong... Check the console for more information")
+      console.log(err);
+    })
+  }
+
+  function getEnergyData() {
+    let uid = CrownstoneUidRef.value;
+    if (!uid) { return alert("Provide a UID number") }
+
+    // get the IP address from the DOM and catch a few likely issues.
+    let ipAddress = IpRef.value;
+    ipAddress.replace("example:",'');
+    ipAddress.replace(":5050",'');
+    if (!ipAddress) { return alert("Invalid ip address...") }
+
+    // get the token from the DOM
+    let token = TokenRef.value;
+    if (token.length !== 64) { return alert("Invalid token. Must be 64 characters long.") }
+
+    // get the data
+    makeRestRequest(`https://${ipAddress}:5050/api/energyRange?crownstoneUID=${uid}&limit=100&access_token=${token}`, (data) => {
+      let dataArr = JSON.parse(data);
+      AvailabilityRef.innerHTML = "<h1>Energy Data (max 100 samples):</h1><br /><code>" + JSON.stringify(dataArr, undefined, 2) + "</code>";
+    }, (err) => {
+      alert("Something went wrong... Check the console for more information")
+      console.log(err);
+    })
+
+  }
+
+
+</script>
+</body>
+</html>
