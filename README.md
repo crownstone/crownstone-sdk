@@ -17,15 +17,15 @@ You can read how to use it in the [REST API documentation](REST_API.md).
 
 ![Image of Strongloop API Explorer](https://raw.githubusercontent.com/crownstone/crownstone-sdk/master/images/strongloop-api-explorer.png)
 
-You can read more on the cloud at <https://github.com/crownstone/cloud>.
+You can read more detailed cloud documentation [here](cloud/).
 
 # <a name="smartphone_libs"></a>Smartphone libraries
 
-The documentation on the smartphone application can be found at <https://github.com/crownstone/smartphones/>.
+The documentation on the smartphone application can be found [here](smartphones/).
 
 # <a name="bluenet"></a>Bluenet Firmware
 
-An entry to the documentation of the firmware can be found at <https://github.com/crownstone/firmware/>.
+An entry to the documentation of the firmware can be found [here](firmware/).
 
 
 
