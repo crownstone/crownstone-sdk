@@ -55,6 +55,8 @@ Summarized:
 You can run our software on your own hub as long as it is compatible with the "snap" system from Ubuntu and you have bought a USB dongle 
 from <https://shop.crownstone.rocks>. First you have to install the right software on the hub and give the right permissions.
 
+If your hub is a Raspberry PI you can for example follow [this tutorial](https://ubuntu.com/tutorials/how-to-install-ubuntu-core-on-raspberry-pi#1-overview) to have Ubuntu Core on your machine.
+
 Set the correct time zone:
 
     sudo timedatectl set-timezone Europe/Amsterdam
