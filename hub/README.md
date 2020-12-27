@@ -11,13 +11,12 @@ If you want to obtain the data that resides on the hub, there's an API for that 
 
 Index
 
-- [Updating your Crownstones](#updating)
-- [Setting up your own hub](#own_hub)
-- [How to manually setup the hub software](#manual_setup)
-- [Hub API](#api)
+- [Updating your Crownstones](#setting-up-and-updating-your-Crownstones)
+- [Setting up your own hub](#setup-of-your-own-hub)
+- [How to manually setup the hub software](#manual-setup-of-the-hub-software)
+- [Hub API](#the-hub-api)
 
 
-<a name="updating"></a>
 # Setting up and updating your Crownstones
 
 In order for the energymeasurement to work, and in order for the Crownstone USB dongle to be able to communicate with the hub, you need to update all Crownstones (including the dongle) to firmware 5.3.0. At the moment this firmware is released only to our BETA users. To join the beta program, make a Crownstone account and send an email to `access[at]crownstone.rocks`. Please mention the email address used to login to our cloud so we can enable BETA access for your account. After your phone syncs with the cloud, the new firmware can be installed via the Crownstone consumer app. The syncing takes place every 10 minutes and on app boot.
@@ -49,7 +48,6 @@ Summarized:
 - Click `edit`.
 - Scroll to the bottom to see the current firmware version.
 
-<a name="own_hub"></a>
 # Setup of your own hub
 
 You can run our software on your own hub as long as it is compatible with the "snap" system from Ubuntu and you have bought a USB dongle 
@@ -93,7 +91,6 @@ Optionally, give permission to some additional interfaces we don't use yet, but 
 Now you are ready to setup the hub software itself, which connects everything to the Crownstone cloud using your authentication data.
 
 
-<a name="manual_setup"></a>
 # Manual setup of the hub software
 
 The current setup with our dongle requires the following manual steps. We will assume you have create an account via the [Crownstone consumer app](https://crownstone.rocks/app/)
@@ -131,12 +128,10 @@ Later on, we will support the following steps from the smartphone app, but for n
 Note that these steps are only required in this early phase! Later on, the Crownstone app will take care of this. Moreover, the process will use the USB dongle itself and the Bluetooth connection to the dongle. The end point [HubController Post /hub](https://192.168.0.0:5050/explorer/#/HubController/HubController.createHub) will then be removed again.
 
 
-<a name="api"></a>
 # The Hub API
 
 TThere is an API available on the hub with which data can be obtained directly from the hub. This has quite some info, so we create a separate document for this. See this [document](ENDPOINTS.md).
 
-<a name="examples"></a>
 # Hub usage examples
 
 In the [examples](examples/) folder there are two examples. One to get data using a  script [.js file](./examples/example.js) and one where we get the data in a browser [.html file](./examples/example.html).
