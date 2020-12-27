@@ -20,6 +20,7 @@ More information [here](https://medium.com/@dblazeski/chrome-bypass-net-err-cert
 In this document we will describe each of the controllers, but first, a bit about authorization!
 
 # Authorization
+
 In order to use some (most) of the endpoints, you need to be authenticated. You do this, you can either use the Authorize button on the explorer,
 or provide a http header named `Authorization` or `access_token` or add `?access_token=<your-token>` to the end of your request. If you provide the token
 as a query parameter, it will also end up in logs.
@@ -44,7 +45,7 @@ no authorization required     // anyone can access this.
 #### [EnergyController](#EnergyController)
 #### [SwitchController](#SwitchController)
 
-<a name="HubController"></a>
+
 ## HubController
 
 This controller is responsible for configuring your hub. A lot of this functionality may change once the integration with the 
@@ -54,6 +55,7 @@ these endpoints.
 
 
 #### POST: /hub
+
 > `no authorization required`
 >
 > This endpoint is used to instantiate a new hub. You can read the INSTALLATION.MD for more details.
@@ -91,6 +93,7 @@ these endpoints.
 <br/>
 
 #### DELETE: /hub
+
 > `no authorization required (for now)`
 >
 > Use this endpoint to delete the hub instance. The entire database will also be cleared. 
@@ -99,11 +102,12 @@ these endpoints.
 
 <br/>
 
-<a name="MeshController"></a>
 ## MeshController
+
 This controller will provide you with information on the mesh.
 
 #### GET: /crownstonesInMesh
+
 > `authorization required`
 >
 > You can use this endpoint to see which Crownstones are reachable in the mesh network connected to your hub. 
@@ -123,11 +127,13 @@ This controller will provide you with information on the mesh.
 
 <br/>
 
-<a name="EnergyController"></a>
+
 ## EnergyController
+
 This controller will provide you with everything regarding the collected energy data. 
 
 #### GET: /energyAvailability
+
 > `authorization required`
 >
 > This endpoint informs you of the amount of data available per Crownstone.
@@ -147,6 +153,7 @@ This controller will provide you with everything regarding the collected energy 
 <br/>
 
 #### GET: /energyRange
+
 > `authorization required`
 >
 >This is where you get the energy data. You provide the Crownstone short UID, a from and until ISO timestring and finally a maximum amount of datapoints to collect.
@@ -166,6 +173,7 @@ This controller will provide you with everything regarding the collected energy 
 <br/>
 
 #### DELETE: /energyData
+
 > `admin authorization required`
 >
 > Delete all energy data from this hub.
@@ -173,17 +181,18 @@ This controller will provide you with everything regarding the collected energy 
 <br/>
 
 #### DELETE: /energyFromCrownstone
+
 > `admin authorization required`
 >
 > Delete all energy data for a specific Crownstone from this hub.
 
 <br/>
 
-<a name="SwitchController"></a>
 ## SwitchController
 This controller will handle all your requirements for switching and dimming the Crownstones in your network.
 
 #### POST: /turnOff
+
 > `authorization required`
 >
 > Turn off the Crownstone with the provided Crownstone short uid. 
@@ -191,6 +200,7 @@ This controller will handle all your requirements for switching and dimming the 
 <br/>
 
 #### POST: /turnOn
+
 > `authorization required`
 >
 > Turn on the Crownstone with the provided Crownstone short uid. Turn on will respect behaviour and twilight preferences of the Crownstone,
@@ -199,6 +209,7 @@ This controller will handle all your requirements for switching and dimming the 
 <br/>
 
 #### POST: /switch
+
 > `authorization required`
 >
 > Set the switch of the Crownstone that has the provided short UID to the provided percentage (0, 10-100). 
@@ -207,6 +218,7 @@ This controller will handle all your requirements for switching and dimming the 
 <br/>
 
 #### POST: /switchMultiple
+
 > `authorization required`
 >
 > Switch a number of Crownstones at the same time. You have to provide an array of SwitchData objects which are described below. 
