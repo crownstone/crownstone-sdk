@@ -10,7 +10,7 @@ The Crownstone SDK exists of three parts (in an increasing order of integration)
 
 :computer: A [hub](#hub) to bridge a Crownstone mesh to the cloud.
 
-# <a name="rest_api"></a>REST API
+# REST API
 
 The cloud is required to setup the Crownstones: keys and IDs will be generated, and locations can be set.
 After that, it can be used to add users, so they can also make use of your Crownstones.
@@ -21,15 +21,15 @@ You can read how to use it in the [REST API documentation](REST_API.md).
 
 You can read more detailed cloud documentation [here](cloud/).
 
-# <a name="smartphone_libs"></a>Smartphone libraries
+# Smartphone libraries
 
 The documentation on the smartphone application can be found [here](smartphones/).
 
-# <a name="bluenet"></a>Bluenet Firmware
+# Bluenet Firmware
 
 An entry to the documentation of the firmware can be found [here](firmware/).
 
-# <a name="hub"></a>Crownstone Hub
+# Crownstone Hub
 
 An entry to the documentation of the hub can be found [here](hub/).
 
