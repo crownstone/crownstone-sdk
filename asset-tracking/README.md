@@ -23,7 +23,7 @@ It is important that when you get **multiple preconfigured kits** for asset trac
 
 If you want to chain Crownstones we recommend the following configuration:
 
-![Chain Crownstones](https://github.com/crownstone/crownstone-sdk/raw/master/images/crownstone-chain.png)
+![Chain Crownstones](https://github.com/crownstone/crownstone-sdk/raw/master/images/crownstone-chain.jpg)
 
 You see that the Crownstones are **not** daisy-chained. The output is left **disconnected**. This is on purpose! It means that the system does not depend on the state of the relay in the Crownstone.
 
