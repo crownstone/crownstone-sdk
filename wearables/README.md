@@ -220,11 +220,7 @@ async def main():
 asyncio.run(main())
 ```
 
-You can test if the proper filter has been uploaded to the Crownstone by:
-
-```
-# test
-```
+You can test if the proper filter has been uploaded to the Crownstone by using `getFilterSummaries()` as in the example script above.
 
 ## Presence
 
@@ -238,7 +234,6 @@ Currently, each time an asset advertisement is seen by a crownstone, the crownst
 
 We have tested the following hardware:
 
-* ...
-* ...
+* Minew D15N
 
 If you want to be able to do presence detection with some **other hardware**, please contact us. We can check if this is possible. Give us as much information as possible on the messages it is broadcasting. For example using the Nordic Semi [nRF Connect for Mobile](https://www.nordicsemi.com/Software-and-tools/Development-Tools/nRF-Connect-for-mobile) app.
