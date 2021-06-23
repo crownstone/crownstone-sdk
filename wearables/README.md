@@ -10,7 +10,7 @@ We have tested the following devices:
 
 | Brand    | Model     | Freq (Hz) | Recognized by |
 |----------|-----------|----------:|---------------|
-| Minew    | D15N      |        2? |   MAC address |
+| Minew    | D15N      |       1.7 |   MAC address |
 
 The device has to have something that it is recognized by. This can be a **manufacturer ID** for all devices of a particular brand. Or this can be something unique, for example a **MAC address**. In that case it is important that this information does **not** change over time. It should not "rotate" its address.
 
@@ -27,10 +27,10 @@ At this time, the released libraries do not have this feature yet, so you have t
 Use option 2 of [these instructions](https://github.com/crownstone/crownstone-lib-python-core/blob/master/docs/TUTORIAL_VENV_SETUP.md)
 
 
-The following example script uses the library to upload a filter with MAC addresses.
+The following [example script](https://github.com/vliedel/scripts-bluenet/blob/master/asset-filter-example-mac.py) uses the library to upload a filter with MAC addresses.
 Once uploaded to a crownstone, it will be synchronized to other crownstones in the sphere as well.
 
-```
+```python
 #!/usr/bin/env python3
 
 """
