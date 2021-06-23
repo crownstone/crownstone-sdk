@@ -24,11 +24,11 @@ This was tested with firmware 5.5.0.
 
 A filter can be configured using our python libraries. Make sure you have python 3.7 or higher.
 At this time, the released libraries do not have this feature yet, so you have to install them from git.
-Use option 2 of [these instructions](https://github.com/crownstone/crownstone-lib-python-core/blob/master/docs/TUTORIAL_VENV_SETUP.md)
+Use option 2 of [these instructions](https://github.com/crownstone/crownstone-lib-python-core/blob/master/docs/TUTORIAL_VENV_SETUP.md).
 
 
-The following [example script](https://github.com/vliedel/scripts-bluenet/blob/master/asset-filter-example-mac.py) uses the library to upload a filter with MAC addresses.
-Once uploaded to a crownstone, it will be synchronized to other crownstones in the sphere as well.
+The following example script ([download](https://github.com/vliedel/scripts-bluenet/blob/master/asset-filter-example-mac.py)) uses the `crownstone_core` and `crownstone_uart` python libraries to upload a filter which filters on a particular **MAC address**.
+Once the filter is uploaded to a Crownstone, it will be automatically synchronized to the other Crownstones in the sphere as well.
 
 ```python
 #!/usr/bin/env python3
@@ -179,7 +179,7 @@ async def main():
 
 
 		###########################################################################################
-		##################################### Uploade filters #####################################
+		##################################### Upload filters #####################################
 		###########################################################################################
 
 		filters = [filter]
@@ -224,7 +224,13 @@ You can test if the proper filter has been uploaded to the Crownstone by using `
 
 ## Presence
 
-Note that by setting profile ID to 0, the assets will also count for **presence detection** as someone being in the sphere.
+Note that by setting profile ID to 0, the assets will also "count for" **presence detection** as someone being in the sphere.
+You can find this field in the script above; search for this snippet:
+
+```python
+		# Setting profile ID 0 will make the asset also trigger behaviours.
+		metadata.profileId = 0
+```
 
 You can test this most easily by having a rule that reacts to presence and which controls the power for a light based on that presence. If you have a Nordic Semi development board you can inspect the logs (with non-release firmware and logs enabled).
 
@@ -234,6 +240,6 @@ Currently, each time an asset advertisement is seen by a crownstone, the crownst
 
 We have tested the following hardware:
 
-* Minew D15N
+* Minew D15N ([manufacturer site](https://www.minew.com/products/d15n-ufo-beacon.html))
 
 If you want to be able to do presence detection with some **other hardware**, please contact us. We can check if this is possible. Give us as much information as possible on the messages it is broadcasting. For example using the Nordic Semi [nRF Connect for Mobile](https://www.nordicsemi.com/Software-and-tools/Development-Tools/nRF-Connect-for-mobile) app.
