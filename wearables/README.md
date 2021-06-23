@@ -8,9 +8,9 @@ Crownstones can scan for Bluetooth LE messages from devices that broadcast those
 
 We have tested the following devices:
 
-| Brand    | Freq (Hz) | Recognized by |
-|----------|----------:|---------------|
-| ...      |         1 |   MAC address |
+| Brand    | Model     | Freq (Hz) | Recognized by |
+|----------|-----------|----------:|---------------|
+| Minew    | D15N      |        2? |   MAC address |
 
 The device has to have something that it is recognized by. This can be a **manufacturer ID** for all devices of a particular brand. Or this can be something unique, for example a **MAC address**. In that case it is important that this information does **not** change over time. It should not "rotate" its address.
 
@@ -233,6 +233,8 @@ Note that by setting profile ID to 0, the assets will also count for **presence 
 You can test this most easily by having a rule that reacts to presence and which controls the power for a light based on that presence. If you have a Nordic Semi development board you can inspect the logs (with non-release firmware and logs enabled).
 
 ## Recommendation
+
+Currently, each time an asset advertisement is seen by a crownstone, the crownstone will send a message over the mesh, which leads to congestion in the mesh. So for now, we recommend using assets that only advertise once a second, not using many assets, and not having many crownstones in a sphere. 
 
 We have tested the following hardware:
 
