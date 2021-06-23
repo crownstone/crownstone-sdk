@@ -10,7 +10,7 @@ We have tested the following devices:
 
 | Brand    | Model     | Freq (Hz) | Recognized by |
 |----------|-----------|----------:|---------------|
-| Minew    | D15N      |       1.7 |   MAC address |
+| Minew    | D15N      |       1-2 |   MAC address |
 
 The device has to have something that it is recognized by. This can be a **manufacturer ID** for all devices of a particular brand. Or this can be something unique, for example a **MAC address**. In that case it is important that this information does **not** change over time. It should not "rotate" its address.
 
