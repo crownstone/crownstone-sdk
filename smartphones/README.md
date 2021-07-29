@@ -1,14 +1,23 @@
-# <a name="smartphone_libs"></a>Smartphone libraries
+# Smartphone libraries
+
 To make things easy, we provide native libraries for smartphones. The following libraries are available and can be found on github:
 
-- [Android](https://github.com/crownstone/bluenet-lib-android)
-- [iOS](https://github.com/crownstone/bluenet-lib-ios)
+- [iOS](https://github.com/crownstone/bluenet-ios-lib)
+- [Android](https://github.com/crownstone/bluenet-android-lib)
 
 The libraries abstract the communication with the Crownstones. They simplify scanning/search for crownstones, wrap the messages into easy-to-use objects, and provide simple functions to access the functionalities provided on the Crownstones. 
 
+## iOS
+
+You can find more information on the <https://github.com/crownstone/bluenet-ios-lib> repository itself. Summarized, it is written in Swift, it uses Carthage to do dependency management, and there are two parts (one that has to do with providing Bluetooth functions, the other with providing indoor localization methods).
+
+## Android
+
+You can find the code on https://github.com/crownstone/bluenet-android-lib. Summarized, it is written in Kotlin, it uses Gradle for dependency management, and it only has the functions that have to do with Bluetooth.
+
 The following features will be available (some are still in development):
 
-## <a name="bluenet_lib_commands"></a>Commands
+## Commands
 
 - Switch/dim
 - Set time
@@ -21,6 +30,7 @@ The following features will be available (some are still in development):
 - Enable/disable continous high frequency power sampling
 
 ## Notified data
+
 This data streams in regularly via a callback.
 
 - Switch state (0-100)
@@ -28,11 +38,11 @@ This data streams in regularly via a callback.
 - Total energy usage (Wh)
 - Chip temperature (°C)
 
-## <a name="bluenet_lib_configs"></a>Get/set configurations:
+## Get/set configurations
 
-Configurations that can be set and read. 
+Configurations that can be read and/or written. 
 
-Note: The enable/disable states can only be set using the corresponding [command](#bluenet_lib_commands) but they can be read through the config.
+Note: The enable/disable states can only be set using the corresponding [command](#commands) but they can be read through the config.
 
 - Encryption keys
 - ID
@@ -49,8 +59,8 @@ Commands that can be issued to other Crownstones via the mesh. In case a command
 
 - Switch
 - Get state (switch state, power usage, energy usage, temperature)
-- Get [config](#bluenet_lib_configs)
-- Set [config](#bluenet_lib_configs)
+- Get [config](#getset-configurations)
+- Set [config](#getset-configurations)
 - Enable/disable scanning or high frequency power sampling
 
 
@@ -58,7 +68,7 @@ Commands that can be issued to other Crownstones via the mesh. In case a command
 
 ![Image of Indoor Localization](https://raw.githubusercontent.com/crownstone/crownstone-sdk/master/images/indoor-localization.png)
 
-This library abstracts and implements the localization, it uses the [bluetooth library](#bluenet_lib) and [REST API](#rest_api). The localization is based on rooms, though it is more a certain area. This means you can define multiple rooms in a single real world room.
+The **indoor localization** library is a separate library to abstracts and implements the localization. It uses the native bluetooth libraries and the [REST API](/cloud) of the cloud. The localization is based on "rooms". A room should be understand as a certain area that you consider important (and have trained as a separate entity). For example, you can define multiple rooms in a single real-world room.
 
 Features (in development):
 
