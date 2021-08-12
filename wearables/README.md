@@ -19,10 +19,13 @@ The Crownstones have to be configured in such way that they are only reacting to
 ## Firmware
 
 This was tested with firmware 5.5.0.
+There is a known bug in firmware 5.5.0 that let's you only set up to 2 specific entries per filter.
 
 ## Configuring filter
 
 Work in progress: an example for using the hub rest api will be added here.
+
+You can also use the python library to set an asset filter. An example can be found [here](https://github.com/crownstone/crownstone-lib-python-uart/blob/master/examples/asset_filter_example.py).
 
 ## Presence
 
