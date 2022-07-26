@@ -26,7 +26,7 @@ Summarized:
 
 - Install the Crownstone app.
 - Create a Crownstone account.
-- Add the Crownstone USB dongle, and other Crownstones to your sphere.
+- Add the Crownstone to your sphere.
     - Make sure the Crownstone is powered.
     - In the sphere overview, click the `(+)` button at the bottom right.
     - Select `Crownstone`.
@@ -34,8 +34,6 @@ Summarized:
     - Repeat this for every Crownstone (and Crownstone USB dongle).
 - Check if your Crownstones are at version 5.3.0 or higher.
     - If there is a blue bar with `Update available` on top, click it.
-    - Verify that the "What's new" mentions the Crownstone hub.
-    - Update all Crownstones and USB dongles.
 
 You can check the firmware version of a Crownstone in the consumer app by going to the room your Crownstone is in, tapping on the title of the Crownstone, tapping Edit in the top right corner and scroll to the bottom of the screen.
 
@@ -89,41 +87,7 @@ Now you are ready to setup the hub software itself, which connects everything to
 
 
 # Manual setup of the hub software
-
-The current setup with our dongle requires the following manual steps. We will assume you have create an account via the [Crownstone consumer app](https://crownstone.rocks/app/)
-and are able to control a couple of Crownstones, either built-in or plugs. If you done this, this means that:
-* you have an account on the Crownstone cloud, at <https://my.crownstone.rocks>,
-* you have a so-called `sphere` (a collection of Crownstones including keys for encrypting data to/from those Crownstones). 
-
-Later on, we will support the following steps from the smartphone app, but for now you will have to manually add the Crownstone USB dongle to your sphere.
-
-- Plug in the Crownstone USB dongle to your device.
-- Go to the Crownstone cloud at <https://my.crownstone.rocks> and get a token.
-- Go subsequently to the explorer at <https://my.crownstone.rocks/explorer> and populate the token field in the top.
-- Go to [Get /users/me](https://cloud.crownstone.rocks/explorer/#!/user/user_me) and click `Try it out`, the copy the `id`.
-- Similarly, get the `id` of your sphere via [Get /users/{id}/spheres](https://cloud.crownstone.rocks/explorer/#!/user/user_spheres). Fill in your user id in the **id** field, and click `Try it out`.
-- Create a new `token` (this is a different token then the one for logging in, one you generate yourself!). It should be 64 random bytes in hexstring format (so 128 hex characters). You can use [my.crownstone.rocks/generateHubToken](https://my.crownstone.rocks/generateHubToken) to generate one.
-- Create a hub instance by [Post /Spheres/{id}/hub](https://cloud.crownstone.rocks/explorer/#!/Sphere/Sphere_createHub). Fill in your sphere id in the **id** fiels, the generated token in the **token** field, and a name in the **name** field. Click `Try it out`, and check that it was a success.
-- Get the hub `id` from [Get /Spheres/{id}/hubs](https://my.crownstone.rocks/explorer/#!/Sphere/Sphere_prototype_get_hubs), and write it down, as you'll need it later.
-- Get the `sphereAuthorizationToken` of the correct sphere from [Get /users/{id}/keysV2](https://my.crownstone.rocks/explorer/#!/user/user_getEncryptionKeysV2).
-- Find the IP address of the hub. Say it is at `192.168.0.0`, then go to port 5050, and use https: https://192.168.0.0:5050.
-- If according to your browser the certificates are not valid, click "Yes I know", or something similar to continue.
-- Go to the explorer.
-- Click `Authorize` on the top right, and fill in the `sphereAuthorizationToken`, then click `Close`.
-- Tell the hub about its Crownstone cloud account. You can post to an endpoint on the hub via [HubController Post /hub](https://192.168.0.0:5050/explorer/#/HubController/HubController.createHub). Click `Try it out` and use the following format:
-  ```
-  {
-    "name": "name from cloud",
-    "token": "hexstring token from cloud",
-    "cloudId": "id of hub in cloud",
-    "sphereId": "id of sphere in cloud"
-  }
-  ```
-- Press execute, and check that it was a success.
-- You're done! The hub is now connected to the Crownstone cloud.
-
-Note that these steps are only required in this early phase! Later on, the Crownstone app will take care of this. Moreover, the process will use the USB dongle itself and the Bluetooth connection to the dongle. The end point [HubController Post /hub](https://192.168.0.0:5050/explorer/#/HubController/HubController.createHub) will then be removed again.
-
+You can use the Crownstone consumer app to setup the hub. Go to the add a new Crownstone menu and select Crownstone Hub from the list. Follow the steps in the app.
 
 # The Hub API
 
